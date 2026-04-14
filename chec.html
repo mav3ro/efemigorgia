@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Efemigorgia</title>
+  <meta
+    name="description"
+    content="Minimalistyczna, ciemna strona Efemigorgii z wyeksponowaną typografią i sekcją hero gotową na zapętlone wideo."
+  >
+  <link rel="icon" type="image/png" href="assets/images/logow.png">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header" data-header>
+      <nav class="site-nav" aria-label="navigation">
+        <div class="nav-cluster nav-cluster--left" aria-label="menu">
+          <a class="nav-link" href="index.html">Początek</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a class="nav-link" href="tworczosc.html">Twórczość</a>
+        </div>
+
+        <a class="nav-logo" href="index.html" aria-label="Efemigorgia">
+          <img class="nav-logo__image nav-logo__image--base" src="assets/images/logow.png" alt="">
+          <img class="nav-logo__image nav-logo__image--hover" src="assets/images/logor.png" alt="">
+        </a>
+
+        <div class="nav-cluster nav-cluster--right" aria-label="Menu po prawej">
+          <a class="nav-link" href="efemigorgia.html">Efemigorgia</a>
+          <span class="nav-divider" aria-hidden="true">|</span>
+          <a class="nav-link" href="de-mour.html">De Mour</a>
+        </div>
+
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Otwórz menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-nav-toggle
+        >
+          <img class="nav-toggle__icon" src="assets/icons/burger.png" alt="">
+        </button>
+      </nav>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+        <a class="mobile-link" href="index.html" data-mobile-link>Początek</a>
+        <a class="mobile-link" href="tworczosc.html" data-mobile-link>Twórczość</a>
+        <a class="mobile-link" href="efemigorgia.html" data-mobile-link>Efemigorgia</a>
+        <a class="mobile-link" href="de-mour.html" data-mobile-link>De Mour</a>
+      </div>
+    </header>
+
+    <main class="site-main site-main--accordion">
+      <section class="accordion-stage" aria-label="Pytania o chęć">
+        <div class="accordion-stage__inner">
+          <h1 class="accordion-stage__title">Chęć</h1>
+          <div class="accordion-list">
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <span>Skąd bierze się chęć?</span>
+                <span class="accordion-summary__tag">Impuls</span>
+              </summary>
+              <div class="accordion-content">
+                <p>Czasem rodzi się z braku, a czasem z nadmiaru życia. Jest impulsem, który popycha ciało i wyobraźnię ku temu, co jeszcze nieosiągnięte.</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <span>Kiedy pragnienie staje się ruchem?</span>
+                <span class="accordion-summary__tag">Ruch</span>
+              </summary>
+              <div class="accordion-content">
+                <p>W chwili decyzji. Dopóki pozostaje tylko wewnętrznym napięciem, jest potencjałem; ruch zaczyna się wtedy, gdy ryzykujemy działanie.</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <span>Czy chęć potrzebuje celu?</span>
+                <span class="accordion-summary__tag">Cel</span>
+              </summary>
+              <div class="accordion-content">
+                <p>Niekoniecznie. Bywa autonomiczną energią, która istnieje sama dla siebie i dopiero później szuka obiektu, formy albo języka.</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <span>Co dzieje się, gdy nie zostaje spełniona?</span>
+                <span class="accordion-summary__tag">Brak</span>
+              </summary>
+              <div class="accordion-content">
+                <p>Może zmienić się w frustrację, ale może też przejść w twórczość. Niespełniona chęć bywa paliwem dla obrazu, tekstu i dźwięku.</p>
+              </div>
+            </details>
+            <details class="accordion-item">
+              <summary class="accordion-summary">
+                <span>Jak długo może trwać napięcie?</span>
+                <span class="accordion-summary__tag">Czas</span>
+              </summary>
+              <div class="accordion-content">
+                <p>Tak długo, jak długo coś pozostaje niedomknięte. Właśnie to niedomknięcie często utrzymuje żywotność pragnienia.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__item">&copy; <span data-year></span><span> | </span><span>Made with Codex and inhuman anger</span></p>
+
+      <div class="site-footer__social" aria-label="Social media">
+        <button class="icon-button" type="button" data-contact-open aria-label="Kontakt">
+          <img src="assets/icons/email.png" alt="">
+        </button>
+
+        <a class="icon-button" href="https://www.instagram.com/vincentdemour/" target="_blank" rel="noreferrer" aria-label="Instagram">
+          <img src="assets/icons/instagram.png" alt="">
+        </a>
+
+        <a class="icon-button" href="#" target="_blank" rel="noreferrer" aria-label="TikTok">
+          <img src="assets/icons/tiktok.png" alt="">
+        </a>
+      </div>
+
+      <p class="site-footer__item site-footer__item--right">All Rights Reserved</p>
+    </footer>
+
+  <div class="contact-modal" data-contact-modal hidden>
+    <div class="contact-modal__backdrop" data-contact-close></div>
+    <div
+      class="contact-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Formularz kontaktowy"
+    >
+      <button class="contact-modal__close" type="button" data-contact-close aria-label="Zamknij formularz">
+        <span aria-hidden="true">+</span>
+      </button>
+
+      <form class="contact-form" data-contact-form data-contact-email="hrabiademour@gmail.com">
+        <label class="contact-form__field">
+          <span>Imię</span>
+          <input type="text" name="name" placeholder="Twoje imię" required>
+        </label>
+
+        <label class="contact-form__field">
+          <span>E-mail</span>
+          <input type="email" name="email" placeholder="twoj@email.com" required>
+        </label>
+
+        <label class="contact-form__field">
+          <span>Temat</span>
+          <input type="text" name="subject" placeholder="Temat wiadomości" required>
+        </label>
+
+        <label class="contact-form__field">
+          <span>Wiadomość</span>
+          <textarea name="message" rows="6" placeholder="Treść wiadomości" required></textarea>
+        </label>
+
+        <button class="contact-form__submit" type="submit">Wyślij</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

@@ -57,52 +57,146 @@
       <section class="accordion-stage" aria-label="Pytania o miłość">
         <div class="accordion-stage__inner">
           <h1 class="accordion-stage__title">Miłość</h1>
+          <div class="accordion-tools" data-accordion-filter>
+            <label class="accordion-search" for="krzyk-search">
+              <input
+                class="accordion-search__input"
+                id="krzyk-search"
+                type="search"
+                placeholder="Szukaj tekstu..."
+                data-accordion-search
+              >
+            </label>
+
+            <div class="accordion-filters-row">
+              <div class="accordion-filters" aria-label="Filtruj po roku">
+                <button class="accordion-filter is-active" type="button" data-accordion-filter-button="all" aria-pressed="true">
+                  Wszystkie
+                </button>
+                <button class="accordion-filter" type="button" data-accordion-filter-button="2025" aria-pressed="false">
+                  2025
+                </button>
+                <button class="accordion-filter" type="button" data-accordion-filter-button="2026" aria-pressed="false">
+                  2026
+                </button>
+              </div>
+
+              <div class="accordion-actions" aria-label="Akcje listy">
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-toggle-all aria-pressed="false">
+                  Rozwiń wszystkie
+                </button>
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-favorites aria-pressed="false">
+                  Ulubione
+                </button>
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-random aria-pressed="false">
+                  Losuj
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div class="accordion-list">
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <p class="accordion-empty" data-accordion-empty hidden>Brak wyników dla tego wyszukiwania.</p>
+
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Czym jest miłość?</span>
-                <span class="accordion-summary__tag">Definicja</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="krzyk-czym-jest-milosc" aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Miłość bywa jednocześnie schronieniem i raną. To napięcie między bliskością, potrzebą bycia widzianym i lękiem przed utratą.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2026">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Kiedy uczucie staje się obsesją?</span>
-                <span class="accordion-summary__tag">Obsesja</span>
+                <span class="accordion-summary__tag">2026</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="krzyk-kiedy-uczucie-staje-sie-obsesja" aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Dzieje się to wtedy, gdy druga osoba przestaje być obecnością, a zaczyna być projekcją. Wtedy pragnienie nie szuka już spotkania, tylko potwierdzenia własnego głodu.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Czy bliskość potrzebuje słów?</span>
-                <span class="accordion-summary__tag">Bliskość</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="krzyk-czy-bliskosc-potrzebuje-slow" aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Nie zawsze. Czasem najpełniej wybrzmiewa w gestach, pauzach i milczeniu, które nie jest pustką, lecz wspólnym oddechem.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2026">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Jak ciało pamięta uczucie?</span>
-                <span class="accordion-summary__tag">Pamięć</span>
+                <span class="accordion-summary__tag">2026</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="krzyk-jak-cialo-pamieta-uczucie" aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Ciało przechowuje ślady dłużej niż pamięć logiczna. Dotyk, zapach i rytm obecności wracają często wcześniej niż konkretne wspomnienia.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Co zostaje po odejściu?</span>
-                <span class="accordion-summary__tag">Strata</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="krzyk-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Zostaje echo. Nie tylko strata, ale też przemiana, bo każda prawdziwa miłość przesuwa granice tego, kim byliśmy przed nią.</p>
               </div>
             </details>
+            <details
+              class="accordion-item accordion-item--secret"
+              data-accordion-year="2026"
+              data-secret-hash="128df13c1e54ffaaafcc9d07ec7427d61f764214e6ae0321de23c94d261d0860"
+              data-secret-title="Sekret"
+              data-secret-unlocked="false"
+            >
+              <summary class="accordion-summary accordion-summary--secret">
+                <span class="accordion-summary__secret-title" data-secret-title-node>##########</span>
+                <span class="accordion-summary__tag">2026</span>
+                <div class="accordion-secret-controls">
+                  <label class="accordion-secret-field" aria-label="Wpisz hasło">
+                    <input
+                      class="accordion-secret-input"
+                      type="password"
+                      placeholder="Hasło"
+                      data-secret-input
+                      autocomplete="off"
+                    >
+                  </label>
+                  <button class="accordion-secret-submit" type="button" data-secret-submit>
+                    Otwórz
+                  </button>
+                </div>
+              </summary>
+              <div class="accordion-content">
+                <p>To ukryty tekst dostępny dopiero po wpisaniu poprawnego hasła.</p>
+              </div>
+            </details>
+          </div>
+
+          <p class="accordion-counter" data-accordion-counter>
+            Liczba tekstów: <span data-accordion-counter-value>0</span>
+          </p>
+
+          <div class="accordion-footer-action">
+            <button class="scroll-top-button" type="button" data-scroll-top aria-label="Przewiń na początek strony">
+              <span aria-hidden="true">&#8593;</span>
+            </button>
           </div>
         </div>
       </section>

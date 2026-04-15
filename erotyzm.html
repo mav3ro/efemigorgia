@@ -57,52 +57,146 @@
       <section class="accordion-stage" aria-label="Pytania o erotyzm">
         <div class="accordion-stage__inner">
           <h1 class="accordion-stage__title">Erotyzm</h1>
+          <div class="accordion-tools" data-accordion-filter>
+            <label class="accordion-search" for="erotyzm-search">
+              <input
+                class="accordion-search__input"
+                id="erotyzm-search"
+                type="search"
+                placeholder="Szukaj tekstu..."
+                data-accordion-search
+              >
+            </label>
+
+            <div class="accordion-filters-row">
+              <div class="accordion-filters" aria-label="Filtruj po roku">
+                <button class="accordion-filter is-active" type="button" data-accordion-filter-button="all" aria-pressed="true">
+                  Wszystkie
+                </button>
+                <button class="accordion-filter" type="button" data-accordion-filter-button="2025" aria-pressed="false">
+                  2025
+                </button>
+                <button class="accordion-filter" type="button" data-accordion-filter-button="2026" aria-pressed="false">
+                  2026
+                </button>
+              </div>
+
+              <div class="accordion-actions" aria-label="Akcje listy">
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-toggle-all aria-pressed="false">
+                  Rozwiń wszystkie
+                </button>
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-favorites aria-pressed="false">
+                  Ulubione
+                </button>
+                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-random aria-pressed="false">
+                  Losuj
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div class="accordion-list">
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <p class="accordion-empty" data-accordion-empty hidden>Brak wyników dla tego wyszukiwania.</p>
+
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Gdzie zaczyna się erotyzm?</span>
-                <span class="accordion-summary__tag">Napięcie</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Zaczyna się tam, gdzie pojawia się napięcie między tym, co odsłonięte, a tym, co tylko zasugerowane. To sztuka niedopowiedzenia bardziej niż dosłowności.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2026">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Czy spojrzenie może być dotykiem?</span>
-                <span class="accordion-summary__tag">Spojrzenie</span>
+                <span class="accordion-summary__tag">2026</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Tak, bo spojrzenie potrafi zatrzymać, rozbroić albo rozpalić. Czasem to ono inicjuje całą dramaturgię bliskości.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Co ukrywa napięcie?</span>
-                <span class="accordion-summary__tag">Pragnienie</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Napięcie ukrywa obietnicę i ryzyko. Jest przestrzenią, w której pragnienie rośnie właśnie dlatego, że nie zostaje od razu zaspokojone.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2026">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Jak intymność buduje rytm?</span>
-                <span class="accordion-summary__tag">Intymność</span>
+                <span class="accordion-summary__tag">2026</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Poprzez powtórzenia, zawieszenia i drobne przesunięcia. Erotyzm żyje w tempie, które bardziej przypomina muzykę niż deklarację.</p>
               </div>
             </details>
-            <details class="accordion-item">
-              <summary class="accordion-summary">
+            <details class="accordion-item" data-accordion-year="2025">
+              <summary class="accordion-summary accordion-summary--with-heart">
                 <span>Dlaczego cisza bywa najbardziej zmysłowa?</span>
-                <span class="accordion-summary__tag">Cisza</span>
+                <span class="accordion-summary__tag">2025</span>
+                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
+                  <span aria-hidden="true">♡</span>
+                </button>
               </summary>
               <div class="accordion-content">
                 <p>Bo pozostawia miejsce na wyobraźnię. W ciszy wszystko staje się wyraźniejsze: oddech, dystans, oczekiwanie i niepewność.</p>
               </div>
             </details>
+            <details
+              class="accordion-item accordion-item--secret"
+              data-accordion-year="2026"
+              data-secret-hash="128df13c1e54ffaaafcc9d07ec7427d61f764214e6ae0321de23c94d261d0860"
+              data-secret-title="Sekret"
+              data-secret-unlocked="false"
+            >
+              <summary class="accordion-summary accordion-summary--secret">
+                <span class="accordion-summary__secret-title" data-secret-title-node>##########</span>
+                <span class="accordion-summary__tag">2026</span>
+                <div class="accordion-secret-controls">
+                  <label class="accordion-secret-field" aria-label="Wpisz hasło">
+                    <input
+                      class="accordion-secret-input"
+                      type="password"
+                      placeholder="Hasło"
+                      data-secret-input
+                      autocomplete="off"
+                    >
+                  </label>
+                  <button class="accordion-secret-submit" type="button" data-secret-submit>
+                    Otwórz
+                  </button>
+                </div>
+              </summary>
+              <div class="accordion-content">
+                <p>To ukryty tekst dostępny dopiero po wpisaniu poprawnego hasła.</p>
+              </div>
+            </details>
+          </div>
+
+          <p class="accordion-counter" data-accordion-counter>
+            Liczba tekstów: <span data-accordion-counter-value>0</span>
+          </p>
+
+          <div class="accordion-footer-action">
+            <button class="scroll-top-button" type="button" data-scroll-top aria-label="Przewiń na początek strony">
+              <span aria-hidden="true">&#8593;</span>
+            </button>
           </div>
         </div>
       </section>

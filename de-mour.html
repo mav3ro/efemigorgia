@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kim jest Vincent de Mour?</title>
+  <title>💀  Kim właściwie jest Vincent de Mour?</title>
   <meta
     name="description"
     content="Minimalistyczna, ciemna strona Efemigorgii z wyeksponowaną typografią i sekcją hero gotową na zapętlone wideo."
@@ -64,13 +64,21 @@
         <div class="hero__content">
           <div class="text-stage__inner">
             <h1 class="text-stage__title">Vincent de Mour</h1>
-            <p class="text-stage__body">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
+            <p class="poem text-stage__body" >
+              Oto ja
+              Nisko urodzony 
+              Ziarenko piasku 
+              Robactwo 
+              Sól tej ziemii
+              Trzymana w klatce 
+              Słona klepsydra 
+              Odmierza mi
+              Czas 
+              Sól nie jest 
+              Już zdrowa 
+              Kogo teraz 
+              Obchodziłby
+              Piach
             </p>
           </div>
         </div>
@@ -79,7 +87,7 @@
     </main>
     
     <footer class="site-footer">
-      <p class="site-footer__item">&copy; <span data-year></span><span> | </span><span>Made with Codex and inhuman anger</span></p>
+      <p class="site-footer__item">&copy; <span data-year></span><span> | </span><span>Made by VDM</span><br><span>My own skill, Codex and inhuman anger</span></p>
 
       <div class="site-footer__social" aria-label="Social media">
         <button class="icon-button" type="button" data-contact-open aria-label="Kontakt">
@@ -95,7 +103,7 @@
         </a>
       </div>
 
-      <p class="site-footer__item site-footer__item--right">All Rights Reserved</p>
+      <p class="site-footer__item site-footer__item--right"><button class="site-footer__note-button" type="button" data-note-open>Notatka dla poetów</button><span> | </span><span>All Rights Reserved</span></p>
     </footer>
 
   <div class="contact-modal" data-contact-modal hidden>
@@ -133,6 +141,29 @@
 
         <button class="contact-form__submit" type="submit">Wyślij</button>
       </form>
+    </div>
+  </div>
+
+  <div class="contact-modal note-modal" data-note-modal hidden>
+    <div class="contact-modal__backdrop" data-note-close></div>
+    <div
+      class="contact-modal__dialog note-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Notatka dla poetów"
+    >
+      <button class="contact-modal__close note-modal__close" type="button" data-note-close aria-label="Zamknij notatkę">
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <div class="note-modal__section">
+        <div class="note-modal__text">
+          <p>Pamiętaj!</p> 
+          <p>Pisząc wiersz nie wskazuj bezpośrednio o czym on jest.</p>
+          <p>Na przykład:</p>
+          <p>Lubię czarne<br>Smukłe, głośne</p>
+        </div>
+      </div>
     </div>
   </div>
 </body>

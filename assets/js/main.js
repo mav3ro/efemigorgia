@@ -691,11 +691,57 @@ class AccordionAnimator {
     this.item.style.height = "";
     this.item.style.overflow = "";
   }
+
+  close() {
+    if (!this.item.open && !this.isExpanding) {
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      this.item.open = false;
+      return;
+    }
+
+    this.item.style.overflow = "hidden";
+    this.shrink();
+  }
 }
 
 if (accordionItems.length) {
   accordionItems.forEach((item) => {
-    new AccordionAnimator(item);
+    item.__accordionAnimator = new AccordionAnimator(item);
+  });
+
+  accordionItems.forEach((item, index) => {
+    const content = item.querySelector(".accordion-content");
+
+    if (!content || content.querySelector("[data-accordion-close]")) {
+      return;
+    }
+
+    const closeButton = document.createElement("button");
+
+    closeButton.type = "button";
+    closeButton.className = "accordion-content__close";
+    closeButton.textContent = "Ukryj";
+    closeButton.setAttribute("data-accordion-close", "");
+    setTestId(closeButton, `${pageName}-accordion-close-${index + 1}`);
+
+    closeButton.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      const animator = item.__accordionAnimator;
+
+      if (animator && typeof animator.close === "function") {
+        animator.close();
+        return;
+      }
+
+      item.open = false;
+    });
+
+    content.appendChild(closeButton);
   });
 }
 

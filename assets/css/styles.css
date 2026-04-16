@@ -747,6 +747,33 @@ h2 {
   line-height: 1.85;
 }
 
+.accordion-content__close {
+  margin-top: 1.35rem;
+  min-height: 2.45rem;
+  padding: 0.62rem 0.95rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.025);
+  color: rgba(243, 243, 241, 0.74);
+  font: inherit;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.accordion-content__close:hover,
+.accordion-content__close:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.055);
+  transform: translateY(-1px);
+}
+
 .hero {
   flex: 1;
   width: 100%;
@@ -825,8 +852,8 @@ h2 {
 
 .hero__shade {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, transparent 28%, transparent 74%, rgba(0, 0, 0, 0.72) 100%),
-    radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.2) 65%, rgba(0, 0, 0, 0.75) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0%, rgba(0, 0, 0, 0.14) 28%, rgba(0, 0, 0, 0.14) 74%, rgba(0, 0, 0, 0.68) 100%),
+    radial-gradient(circle at center, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.18) 64%, rgba(0, 0, 0, 0.62) 100%);
 }
 
 .hero__noise {

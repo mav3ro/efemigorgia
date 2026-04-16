@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>💀 Vincent de Mour - Poezja - Przekleństwo</title>
   <meta
-    name="description"
+    name="description" 
     content="Przekleństwo nam towarzyszy. Pchamy je w każde zdanie. Każde zdanie pcha nas w przekleństwo. Poezja do zdania. Poezja to przekleństwo."
   >
   <link rel="icon" type="image/png" href="assets/images/logow.png">
@@ -312,7 +312,7 @@
     </main>
 
     <footer class="site-footer">
-      <p class="site-footer__item">&copy; <span data-year></span><span> | </span><span>Made with Codex and inhuman anger</span></p>
+      <p class="site-footer__item">&copy; <span data-year></span><span> | </span><span>Made by VDM</span><br><span>My own skill, Codex and inhuman anger</span></p>
 
       <div class="site-footer__social" aria-label="Social media">
         <button class="icon-button" type="button" data-contact-open aria-label="Kontakt">
@@ -328,7 +328,7 @@
         </a>
       </div>
 
-      <p class="site-footer__item site-footer__item--right">All Rights Reserved</p>
+      <p class="site-footer__item site-footer__item--right"><button class="site-footer__note-button" type="button" data-note-open>Notatka dla poetów</button><span> | </span><span>All Rights Reserved</span></p>
     </footer>
 
   <div class="contact-modal" data-contact-modal hidden>
@@ -366,6 +366,29 @@
 
         <button class="contact-form__submit" type="submit">Wyślij</button>
       </form>
+    </div>
+  </div>
+
+  <div class="contact-modal note-modal" data-note-modal hidden>
+    <div class="contact-modal__backdrop" data-note-close></div>
+    <div
+      class="contact-modal__dialog note-modal__dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Notatka dla poetów"
+    >
+      <button class="contact-modal__close note-modal__close" type="button" data-note-close aria-label="Zamknij notatkę">
+        <span aria-hidden="true">×</span>
+      </button>
+
+      <div class="note-modal__section">
+        <div class="note-modal__text">
+          <p>Pamiętaj!</p> 
+          <p>Pisząc wiersz nie wskazuj bezpośrednio o czym on jest.</p>
+          <p>Na przykład:</p>
+          <p>Lubię czarne<br>Smukłe, głośne</p>
+        </div>
+      </div>
     </div>
   </div>
 </body>

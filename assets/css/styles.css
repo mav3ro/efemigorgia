@@ -932,6 +932,24 @@ h2 {
   justify-self: end;
 }
 
+.site-footer__note-button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.site-footer__note-button:hover,
+.site-footer__note-button:focus-visible {
+  color: var(--text);
+  opacity: 0.9;
+}
+
 .icon-button {
   width: 2.4rem;
   height: 2.4rem;
@@ -1085,6 +1103,51 @@ h2 {
   color: var(--text);
 }
 
+.note-modal__dialog {
+  width: min(36rem, calc(100% - 2rem));
+  padding-top: 2rem;
+}
+
+.note-modal__section {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.note-modal__close {
+  top: 0.9rem;
+  right: 0.9rem;
+}
+
+.note-modal__close span {
+  font-size: 1.15rem;
+  transform: none;
+}
+
+.note-modal__close:hover,
+.note-modal__close:focus-visible {
+  transform: none;
+}
+
+.note-modal__text {
+  display: grid;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+
+.note-modal__text p {
+  margin: 0;
+  color: rgba(243, 243, 241, 0.74);
+  line-height: 1.8;
+}
+
+.note-modal__example {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
 .contact-form {
   display: grid;
   gap: 1rem;
@@ -1140,6 +1203,7 @@ h2 {
 .contact-form__field textarea:focus-visible,
 .contact-form__submit:focus-visible,
 .contact-modal__close:focus-visible,
+.site-footer__note-button:focus-visible,
 .icon-button:focus-visible,
 .accordion-search__input:focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.65);

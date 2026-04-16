@@ -10,6 +10,9 @@ const contactModal = document.querySelector("[data-contact-modal]");
 const contactOpenButtons = document.querySelectorAll("[data-contact-open]");
 const contactCloseButtons = document.querySelectorAll("[data-contact-close]");
 const contactForm = document.querySelector("[data-contact-form]");
+const poetNoteOpenButton = document.querySelector("[data-note-open]");
+const poetNoteModal = document.querySelector("[data-note-modal]");
+const poetNoteCloseButtons = document.querySelectorAll("[data-note-close]");
 const accordionItems = document.querySelectorAll(".accordion-item");
 const contactSubmitButton = contactForm ? contactForm.querySelector(".contact-form__submit") : null;
 const contactFieldNodes = contactForm
@@ -65,6 +68,7 @@ const assignCommonTestIds = () => {
   setTestId(document.querySelector(".site-footer"), "site-footer");
   setTestId(document.querySelector(".site-footer__social"), "footer-social-links");
   setTestId(document.querySelector(".site-footer [data-contact-open]"), "footer-contact-button");
+  setTestId(document.querySelector(".site-footer [data-note-open]"), "footer-poet-note-button");
   setTestId(document.querySelector(".site-footer a[aria-label=\"Instagram\"]"), "footer-instagram-link");
   setTestId(document.querySelector(".site-footer a[aria-label=\"TikTok\"]"), "footer-tiktok-link");
   setTestId(contactModal, "contact-modal");
@@ -77,6 +81,8 @@ const assignCommonTestIds = () => {
   setTestId(document.querySelector(".contact-form input[name=\"subject\"]"), "contact-subject-input");
   setTestId(document.querySelector(".contact-form textarea[name=\"message\"]"), "contact-message-input");
   setTestId(contactSubmitButton, "contact-submit-button");
+  setTestId(poetNoteModal, "poet-note-modal");
+  setTestId(document.querySelector(".note-modal__text"), "poet-note-text");
 };
 
 const assignHomeTestIds = () => {
@@ -255,6 +261,15 @@ const setMenuState = (isOpen) => {
   body.classList.toggle("menu-open", isOpen);
 };
 
+const syncModalState = () => {
+  const hasOpenModal = Boolean(
+    (contactModal && !contactModal.hidden) ||
+    (poetNoteModal && !poetNoteModal.hidden)
+  );
+
+  body.classList.toggle("modal-open", hasOpenModal);
+};
+
 if (navToggle && mobileMenu) {
   navToggle.addEventListener("click", () => {
     const isOpen = navToggle.getAttribute("aria-expanded") === "true";
@@ -269,6 +284,7 @@ if (navToggle && mobileMenu) {
     if (event.key === "Escape") {
       setMenuState(false);
       closeContactModal();
+      closePoetNoteModal();
     }
   });
 }
@@ -279,7 +295,7 @@ const openContactModal = () => {
   }
 
   contactModal.hidden = false;
-  body.classList.add("modal-open");
+  syncModalState();
 };
 
 const closeContactModal = () => {
@@ -288,7 +304,25 @@ const closeContactModal = () => {
   }
 
   contactModal.hidden = true;
-  body.classList.remove("modal-open");
+  syncModalState();
+};
+
+const openPoetNoteModal = () => {
+  if (!poetNoteModal) {
+    return;
+  }
+
+  poetNoteModal.hidden = false;
+  syncModalState();
+};
+
+const closePoetNoteModal = () => {
+  if (!poetNoteModal) {
+    return;
+  }
+
+  poetNoteModal.hidden = true;
+  syncModalState();
 };
 
 const showToast = (message, tone = "success") => {
@@ -429,6 +463,14 @@ contactOpenButtons.forEach((button) => {
 
 contactCloseButtons.forEach((button) => {
   button.addEventListener("click", closeContactModal);
+});
+
+if (poetNoteOpenButton) {
+  poetNoteOpenButton.addEventListener("click", openPoetNoteModal);
+}
+
+poetNoteCloseButtons.forEach((button) => {
+  button.addEventListener("click", closePoetNoteModal);
 });
 
 if (contactForm) {

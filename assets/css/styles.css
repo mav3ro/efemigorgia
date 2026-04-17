@@ -357,6 +357,37 @@ h2 {
   gap: 2rem;
 }
 
+.accordion-stage__back {
+  justify-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-height: 2.35rem;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.02);
+  color: rgba(243, 243, 241, 0.7);
+  font-size: 0.64rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.accordion-stage__back:hover,
+.accordion-stage__back:focus-visible {
+  color: var(--text);
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+  outline: none;
+}
+
 .accordion-stage__title {
   justify-self: center;
   font-family: var(--font-ui);
@@ -1428,6 +1459,12 @@ h2 {
     font-size: clamp(1.55rem, 7vw, 2.4rem);
     letter-spacing: 0.34em;
     text-indent: 0.34em;
+  }
+
+  .accordion-stage__back {
+    padding: 0.52rem 0.9rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
   }
 
   .accordion-summary {

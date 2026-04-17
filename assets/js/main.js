@@ -23,6 +23,16 @@ const contactFieldNodes = contactForm
       message: contactForm.querySelector('textarea[name="message"]')
     }
   : {};
+const contactFieldLimits = {
+  name: 30,
+  subject: 30,
+  message: 1000
+};
+const contactFieldLabels = {
+  name: "Imię",
+  subject: "Temat",
+  message: "Wiadomość"
+};
 const scrollTopButtons = document.querySelectorAll("[data-scroll-top]");
 const accordionHeartButtons = document.querySelectorAll("[data-accordion-heart]");
 const heartStorageKey = "efemigorgia:liked-hearts";
@@ -408,6 +418,16 @@ const clearContactFormErrors = () => {
   Object.values(contactFieldNodes).forEach((field) => setContactFieldError(field, ""));
 };
 
+const clearNativeContactFieldLimits = () => {
+  Object.values(contactFieldNodes).forEach((field) => {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {
+      return;
+    }
+
+    field.removeAttribute("maxlength");
+  });
+};
+
 const getContactFieldError = (field) => {
   if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {
     return "";
@@ -424,11 +444,19 @@ const getContactFieldError = (field) => {
     return "To pole nie może składać się wyłącznie ze spacji.";
   }
 
+  if (field.name === "name" && !/^[\p{L}\s]+$/u.test(trimmedValue)) {
+    return "Imię może zawierać tylko litery i spacje.";
+  }
+
   if (
     field.name === "email" &&
     !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedValue)
   ) {
     return "Wpisz poprawny adres e-mail.";
+  }
+
+  if (field.name in contactFieldLimits && rawValue.length > contactFieldLimits[field.name]) {
+    return `${contactFieldLabels[field.name]} może mieć maksymalnie ${contactFieldLimits[field.name]} znaków.`;
   }
 
   if (field.name === "message" && trimmedValue.length <= 10) {
@@ -476,6 +504,7 @@ poetNoteCloseButtons.forEach((button) => {
 if (contactForm) {
   contactForm.setAttribute("novalidate", "");
   ensureContactFieldErrors();
+  clearNativeContactFieldLimits();
 
   Object.values(contactFieldNodes).forEach((field) => {
     if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {

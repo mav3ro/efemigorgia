@@ -88,9 +88,6 @@
               </div>
 
               <div class="accordion-actions" aria-label="Akcje listy">
-                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-toggle-all aria-pressed="false">
-                  Rozwiń wszystkie
-                </button>
                 <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-favorites aria-pressed="false">
                   Ulubione
                 </button>
@@ -101,925 +98,338 @@
             </div>
           </div>
 
-          <div class="accordion-list">
+          <div class="accordion-link-list" aria-label="Lista utworów">
             <p class="accordion-empty" data-accordion-empty hidden>Brak wyników dla tego wyszukiwania.</p>
 
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="poturbowany">Poturbowany</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="poturbowany">
+                <span class="accordion-link-item__title">Poturbowany</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="poturbowany-text">
-                  Zawsze jestem jakiś poturbowany
-                  Zawsze coś boli, boli i boli
-                  Zawsze coś mi jest
-                  Zawsze coś musi być
-                  Zawsze coś nie daje spać po nocy
-                  Nie ma tak, że nie zawsze
-                  Ciągle i wciąż
-                  Cały czas coś boli
-                  Jestem jakiś poturbowany
-                  Roztrzaskany
-                  Rozbity na milion kawałków
-                  I każdy coś boli, boli i boli
-                  Składam się w ból
-                  Jestem sumą tego co boli
-                  Cały ja
-                  I cały ten ból
-                  To, że tak boli, boli i boli
-                  To, że jest źle
-                  Zawdzięczam sobie
-                  Mojemu własnemu duchowi
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="klamliwe-przeblyski-rzeczywistosci">Kłamliwe przebłyski rzeczywistości</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="klamliwe-przeblyski-rzeczywistosci-text">
-                  W absurdzie abstrakcji
-                  I kłamstwie wyobraźni
-                  Nie ma miejscu na ciszę
-                  Zdradliwe neurony 
-                  Faszerują mnie kłamstwem
-                  Karmią fałszywą nadzieją
-                  I nie ma miejsca na ciszę
-                  Nie ma miejsca na błogą pustkę
-                  Najmniejszą chwilę wytchnienia
-                  Zmyślone wizje wciągają mnie
-                  W absurd abstrakcji
-                  Trzymają na krótkiej smyczy
-                  A może to wszystko na odwrót?
-                  Może abstrakcja w mojej głowie
-                  Jest prawdziwą rzeczywistością?
-                  A rzeczywistość
-                  Kłamie?
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="jeden">Jeden</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="jeden-text">
-                  Jestem jeden
-                  Zawsze sam jeden
-                  Na tym świecie
-                  W mojej głowie
-                  Zawsze jeden
-                  Tylko ja jeden
-                  Słyszę głosy
-                  Jest ich wiele
-                  A ja jestem jeden
-                  Byłem i będę
-                  Zawsze i tylko
-                  Ja jeden
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-poturbowany" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Jesteś tu
-                  Dotykam Cię
-                  Nie czujesz
-                  Nie chcesz
-                  Zawsze jeden
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="naucz-sie-czytac">Naucz się czytać</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="klamliwe-przeblyski-rzeczywistosci">
+                <span class="accordion-link-item__title">Kłamliwe przebłyski rzeczywistości</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-klamliwe-przeblyski-rzeczywistosci" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="jeden">
+                <span class="accordion-link-item__title">Jeden</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-jeden" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="naucz-sie-czytac">
+                <span class="accordion-link-item__title">Naucz się czytać</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="naucz-sie-czytac-text">
-                  Kto dzisiaj czyta poezję?
-                  Poeci za kratami 
-                  Zamknęli tych prawdziwych 
-                  Szczerych 
-                  Zamknęli się sami 
-                  Kto dzisiaj czyta poezję?
-                  Kto to ma dziś czytać poezję...
-                  Jak poezji nie ma
-                  Zza krat nie wyszła 
-                  Zamknęli tą prawdziwą 
-                  Jak mam sprzedać poezję?
-                  Nie dając nikomu przeczytać...
-                  Jak mam pokazać Ci duszę?
-                  Jak Ty nawet nie umiesz czytać...
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="grzechy-zmywam-co-rano">Grzechy zmywam co rano </span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-naucz-sie-czytac" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="grzechy-zmywam-co-rano">
+                <span class="accordion-link-item__title">Grzechy zmywam co rano</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="grzechy-zmywam-co-rano-text">
-                  Normalne grzechy
-                  Zmywam normalną wodą 
-                  Niewinne kłamstewka 
-                  Drobne przewinienia 
-                  Obmywam wczorajszy osad 
-                  Zaczynam dzień - Święty 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-grzechy-zmywam-co-rano" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Ciężkich grzechów 
-                  Nie mam czym przemyć 
-                  Nie przemywam 
-                  Zostawiam ten brud 
-                  Nakładam na niego puder niewinności 
-                  Wytrzyma do wieczora 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="czas-czasem-zwalnia">Czas zwalnia czasem </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="czas-czasem-zwalnia">
+                <span class="accordion-link-item__title">Czas zwalnia czasem</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="czas-czasem-zwalnia-text">
-                  Czasem kiedy zwalnia czas 
-                  &nbsp Przez tą malutką chwilę płynie 
-                  &nbsp&nbsp Wolniej, płynniej 
-                  &nbsp&nbsp&nbsp Popycha wskazówki
-                  &nbsp&nbsp&nbsp&nbsp Ospale 
-                  Chciałbym wtedy spać 
-                  &nbsp Obok Ciebie 
-                  
-                  A nie topić słowa 
-                  &nbsp Spalać neurony pod czarnym niebem
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-czas-czasem-zwalnia" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Szkoda mi siebie 
-
-                  Mogłem spać 
-                  Obok Ciebie 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="tyle-warta">Tyle warta </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="tyle-warta">
+                <span class="accordion-link-item__title">Tyle warta</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="tyle-warta-text">
-                  Przyjdzie taki czas
-                  Że do wiersza powstanie odpowiedź 
-                  Stary poeta 
-                  Zgorzkniałą duszą 
-                  Wytoczy słowa
-                  Jakby mi groził 
-                  Jakby zraniony 
-                  Szykował pozew 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-tyle-warta" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Młody poeta
-                  Z potężnym ego 
-                  Nawet nie sprawdzi 
-                  Co to za brednie 
-
-                  Tyle jest warta 
-                  Moja poezja 
-                  Niezrozumiana
-                  Trochę naiwna
-                  Szuka Cię 
-                  Wszędzie 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="swiat-jest-piekny">Świat jest piękny </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="swiat-jest-piekny">
+                <span class="accordion-link-item__title">Świat jest piękny</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="swiat-jest-piekny-text">
-                  Tak mi błogo 
-                  Taki piękny jest ten świat 
-                  Tak mi dobrze 
-                  Taki spokój w sobie mam
-                  Tyle szczęścia 
-                  I miłości 
-                  Porzuciłem nawet 
-                  Strach 
-                  Taki wdzięczny 
-                  Tak spełniony 
-                  Wykonany każdy 
-                  Plan 
-                  Zero zmartwień 
-                  Pełne zdrowie 
-                  Dobrzy ludzie 
-                  Wokół nas 
-                  Piszę wiersze 
-                  Jesteś obok 
-                  Taki piękny 
-                  Jest ten 
-                  Świat 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-swiat-jest-piekny" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Szkoda, że trwało to tylko sekundę
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="nie-do-zycia">Nie do życia </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="nie-do-zycia">
+                <span class="accordion-link-item__title">Nie do życia</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="nie-do-zycia-text">
-                  To już piąta skóra
-                  Nie zmrużyłem oka 
-                  Zamyka się samo
-                  Słona rzeka z miękkim dnem 
-                  Suche gardło 
-                  Oddech w oddali 
-                  Umyka 
-                  Ciepła postać 
-                  Czarna 
-                  Chce być dla mnie barwna
-                  Zostały dwie godziny 
-                  Świeci czerwona lampka 
-                  Może się uda
-                  Spotkać kogoś tym razem 
-                  Na krótką chwilę 
-                  Ale znowu coś kłuje 
-                  Coś przeszkadza 
-                  Owijam piątą skórę 
-                  Szóstą 
-                  Chitynowy pancerz 
-                  Wątłej duszy 
-                  Połamanej 
-                  Znowu będę 
-                  Nie do życia 
-                  Chyba 
-                  Jestem już stary
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="prawdziwy-czlowiek">Prawdziwy człowiek</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-nie-do-zycia" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="prawdziwy-czlowiek">
+                <span class="accordion-link-item__title">Prawdziwy człowiek</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="prawdziwy-czlowiek-text">
-                  Czy masz do kogo wracać?
-                  Czy ktoś na Ciebie czeka?
-                  Czy kogoś obchodzi to, że wrócisz?
-                  Czy ktoś w ogóle zauważy?
-                  Ucieszy się na Twój widok 
-                  Zapyta jak było 
-                  Posłucha
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-prawdziwy-czlowiek" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Czy tam ktoś jest?
-                  Czy masz tam kogoś?
-                  Tam gdzie wracasz 
-                  Czy jest tam ktoś naprawdę Ci bliski?
-
-                  Człowiek 
-                  Prawdziwy człowiek 
-                  Naprawdę Ci bliski
-
-                  Czy on tam jest, że wracasz?
-
-                  Wiem, że chcesz aby on tam był 
-                  Abyś miał do kogoś wracać 
-                  Aby ktoś czekał Twojego powrotu
-                  Cieszył się na Twój widok 
-                  Słuchał 
-                  Naprawdę słuchał 
-                  Prawdziwy człowiek 
-
-                  Żeby on tam był 
-                  Żebyś miał do kogoś wracać 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="pierwotny-bol">Pierwotny ból </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="pierwotny-bol">
+                <span class="accordion-link-item__title">Pierwotny ból</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="pierwotny-bol-text">
-                  Trzy razy w życiu
-                  Drgała mi powieka
-                  Osładzam sobie pierwotny ból
-                  Płynnym złotem
-                  Słodka chwila
-                  Strudzonego człowieka
-                  Odczuwam ból
-                  Pierwotny ból
-                  Co za udręka
-                  Wbija się szpila
-                  Ten słodki rum
-                  Wypacza trud 
-                  Muzyka gra
-                  Pierwotny ból
-                  Co za udręka
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="santos-dumont">Santos Dumont </span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-pierwotny-bol" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="santos-dumont">
+                <span class="accordion-link-item__title">Santos Dumont</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="santos-dumont-text">
-                  Santos Dumont 
-                  Odrywa się od ziemi
-                  Odrywa mnie od Ciebie 
-                  Cięższy od powietrza 
-                  Lżejszy od chmury 
-                  Trującej?
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-santos-dumont" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Santos Dumont 
-                  Smukły Demoiselle
-                  Kanciasta maszyna 
-                  Zatankowana do pełna 
-                  Złotem?
-
-                  Santos Dumont 
-                  Odrywa mnie od ziemi
-                  Od Ciebie 
-                  Do góry dnem 
-                  Zostawia smugę 
-                  Na suchym niebie
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="co-sie-stanie">Co się stanie?</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="co-sie-stanie">
+                <span class="accordion-link-item__title">Co się stanie?</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="co-sie-stanie-text">
-                  Czy komuś stanie się krzywda 
-                  Gdy rano nie wstanę?
-                  Zasnę chłodną powieką 
-                  W spokoju ten świat zostawię 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-co-sie-stanie" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Czy kogoś to zaboli?
-                  Zaważy na jego losie?
-                  Czy ktoś odczuje brak?
-                  Zatęskni za moim głosem?
-
-                  Czy coś ode mnie zależy?
-                  Czy mam jakiś wpływ?
-                  Czy nagłe zniknięcie 
-                  wywoła katastrofę?
-
-                  Czy kogoś w ogóle obchodzi to,
-                  Że żyje?
-
-                  Czy myśli o mnie przyjaciel?
-                  Czy mnie odszuka kiedy zaginę?
-
-                  Czy sam tu jestem
-                  Jak porzucony pies?
-                  Po ciemku błądzę 
-                  Burczy mi w sercu 
-                  A nie ma co jeść 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="przeromantyzowany">Przeromantyzowany</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="przeromantyzowany">
+                <span class="accordion-link-item__title">Przeromantyzowany</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="przeromantyzowany-text">
-                  Czuję się tutaj bardzo samotny 
-                  Absolutnie niezrozumiany
-                  Nie czuję tak jak czują inni
-                  Jestem 
-                  Przeromantyzowany 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-przeromantyzowany" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  I gdy ktoś tak nie czuje 
-                  Wszystko to co czuje 
-                  Chowam głęboko 
-                  I staje się bardzo samotny
-                  I niezrozumiany
-                  W tym moim świecie 
-                  Przeromantyzowanym
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="mijam">Mijam</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="mijam">
+                <span class="accordion-link-item__title">Mijam</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="mijam-text">
-                  Na coś czekam 
-                  Na kogoś 
-                  Płynie życie, ucieka
-                  Mija 
-                  Na marne zachodzi słońce 
-                  Nie chce mi wierzyć 
-                  Po prostu mija
-                  Na coś czekam 
-                  Coś robię 
-                  Odkładam 
-                  Przemijam
-                  Przekładam
-                  Nie kończę 
-                  I nic nie zaczynam 
-                  Może się boję 
-                  A może...
-                  Tak tylko sobie gdybam 
-                  I chyba...
-                  Chyba
-                  Całe to życie
-                  Mijam 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="czarna-pustka">Czarna pustka</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-mijam" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="czarna-pustka">
+                <span class="accordion-link-item__title">Czarna pustka</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="czarna-pustka-text">
-                  Okno mam na zachód 
-                  Wypalone płuca 
-                  Jak to słońce 
-                  Czarne 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-czarna-pustka" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Wypalona dusza 
-                  W przepalonym gardle 
-                  Poetycka chrypa 
-                  Zadymione usta 
-
-                  Wypalone słońce 
-                  A za oknem 
-                  Pustka
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="sam-na-siebie">Sam na siebie </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="sam-na-siebie">
+                <span class="accordion-link-item__title">Sam na siebie</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="sam-na-siebie-text">
-                  Popatrz na samego siebie 
-                  Obejrzyj sie
-                  Zobacz czym się stałeś 
-                  Czym jesteś 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-sam-na-siebie" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Popatrz i zastanów 
-                  Jak do tego doszło 
-                  Że tak rzadko patrzysz 
-                  Na samego siebie 
-
-                  Że nie możesz już patrzeć 
-                  Na samego siebie
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="piekne-rzeczy">Piękne rzeczy</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="piekne-rzeczy">
+                <span class="accordion-link-item__title">Piękne rzeczy</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="piekne-rzeczy-text">
-                  Lubię rzeczy piękne 
-                  Nietypowe 
-                  Inne 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-piekne-rzeczy" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Lubię gdy świat piękny jest 
-                  &nbsp Spokojny 
-                  &nbsp&nbsp W blasku skąpany 
-
-                  Uczucia lubię piękne, czyste 
-                  &nbsp Niewinne serca 
-                  &nbsp&nbsp Historie piękne 
-                  &nbsp&nbsp&nbsp I romantyczne 
-
-                  Lubię piękne słowa i piękne dźwięki 
-                  &nbsp Przejmujące, wrażliwe 
-                  &nbsp&nbsp Starannie dobrane 
-                  &nbsp&nbsp&nbsp Ale jednocześnie dziecinnie proste
-
-                  Lubię pięknych ludzi 
-                  &nbsp Z dobrymi duszami 
-                  &nbsp&nbsp Zawsze są piękni 
-                  &nbsp&nbsp&nbsp Nawet jak płaczą 
-
-                  I wszystko byłoby piękne 
-                  Gdybym ja nie był 
-                  Brzydki 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="struktura-liscia">Struktura liścia </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="struktura-liscia">
+                <span class="accordion-link-item__title">Struktura liścia</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="struktura-liscia-text">
-                  Gdy spadły pierwsze liście 
-                  Ciężko mi było w to uwierzyć 
-                  Pomyślałem, że to
-                  Jedna, wielka
-                  Manipulacja
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-struktura-liscia" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Niedługo po tym 
-                  Leciały już wszystkie 
-                  Większe, piękniejsze 
-                  W każdym kolorze 
-
-                  Miałem więcej czasu by się im 
-                  Przypatrzeć 
-                  Zrozumieć 
-                  Zajrzeć głębiej w strukturę liścia 
-
-                  Teraz już znam jego budowę 
-                  Wiem jak 
-                  Cieszyć się liściem
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="w-blasku-sczernialego-slonca">W blasku sczerniałego słońca </span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="w-blasku-sczernialego-slonca">
+                <span class="accordion-link-item__title">W blasku sczerniałego słońca</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="w-blasku-sczernialego-slonca-text">
-                  Ty też jesteś dla mnie martwe
-                  Zmarznięte i sczerniałe 
-                  Ale wciąż tu jesteś
-                  Tak samo jak ja 
-                  Razem gaśniemy i wybuchamy 
-                  Zaczynając wszystko od nowa 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="nowy-czlowiek">Nowy człowiek</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="nowy-czlowiek-text">
-                  Nowy
-                  &nbsp Świeży
-                  &nbsp&nbsp Godny
-                  &nbsp&nbsp&nbsp Ludzki
-                  &nbsp&nbsp&nbsp&nbsp  Człowiek
-                  A może stary?
-                  &nbsp Ubrany
-                  &nbsp&nbsp W to samo co wczoraj
-                  &nbsp&nbsp&nbsp Z tą samą miną
-                  &nbsp&nbsp&nbsp&nbsp Tak samo patrzy
-                  Na nowych ludzi
-                  &nbsp On też chce być nowy
-                  &nbsp&nbsp Chce zacząć od nowa
-                  Ubrać się
-                  &nbsp W nowego
-                  &nbsp&nbsp Świeżego
-                  &nbsp&nbsp&nbsp Godnego
-                  &nbsp&nbsp&nbsp&nbsp Człowieka
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="wygnaniec">Wygnaniec</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="wygnaniec-text">
-                  Tu gdzie jestem
-                  Tu gdzie sam się wygnałem
-                  Tu gdzie marzenie karmi się rozczarowaniem 
-                  Gdzie rzeczywistość wypiera fałszywą imaginację
-                  Tu gdzie czuję wszystko i nic jednocześnie 
-                  Gdzie serce płonie bez powietrza
-                  Tu, w moim świecie 
-                  Umrę
-                  Z samotności
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="hayden">Hayden</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="hayden-text">
-                  Jesteś główną postacią
-                  Ikoną swoich czasów
-                  Ten świat to nie wszystko
-                  Na co zasługujesz
-                  Czujesz, że możesz dostać
-                  Jeszcze więcej
-                  Być jeszcze lepszym
-                  Będąc już dobrym
-                  I mając wszystko
-                  O ile łatwiej odrzucić jest rzeczywistość
-                  Niż wyzbyć się marzeń
-                  Jak odróżnić pragnienie
-                  Od prawdziwego uczucia?
-                  Jeśli nie wiesz co jest prawdziwe
-                  Nie wiesz jak stawiać opór
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="ostatnie-cieple-dni">Ostatnie, ciepłe dni</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="ostatnie-cieple-dni-text">
-                  Lubię to lekko chłodne powietrze 
-                  Lubię gdy po obu stronach drogi rosną bujne drzewa 
-                  Zachodzące słońce przebija zielone korony nie pozwalając całkowicie zmarznąć
-                  Lubię te ostatnie, ciepłe dni 
-                  Ostatnie tchnienie lata 
-                  Historie, które miały miejsce
-                  I te, które się nie wydarzyły
-                  A może wydarzyły się aż za bardzo 
-                  Jednak gdy słońce zachodzi 
-                  Czernieje 
-                  Powietrze robi się mroźne 
-                  Przenikliwe i nieprzyjemne 
-                  Zaczyna się wszystko od nowa 
-                  Przychodzą myśli 
-                  Przenikliwe i nieprzyjemne 
-                  Historie, które się nie wydarzyły 
-                  Albo wydarzyły się aż za bardzo 
-                  Prawdopodobnie tylko w mojej głowie
-                  Wróćmy więc do ostatnich, ciepłych dni 
-                  Tego lata
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="moj-pamietnik">Mój pamiętnik </span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="moj-pamietnik-text">
-                  Drogi pamiętniku
-                  Wiedz, że Cię nie piszę 
-                  Tylko brudze kartki 
-                  Moim marnym życiem 
-                  Może będzie lepiej 
-                  Jak się nikt nie dowie 
-                  Jak okropne rzeczy 
-                  Siedzą w mojej głowie
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="czarna-kosmata-postac">Czarna, kosmata postać </span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="czarna-kosmata-postac-text">
-                  Odwracam się w stronę ciemności 
-                  Mam nadzieję, że tam jesteś
-                  Czarna, kosmata postać 
-                  Jak kość blada 
-                  Jak kość chuda 
-                  Włosy ma bujne 
-                  I ślepia wielkie 
-                  Ciemna jest 
-                  Czarna cała 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-w-blasku-sczernialego-slonca" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Stoi tam zmora 
-                  Wytrzeszcza gały 
-                  Krzywo się śmieje 
-                  Zgrywa 
-                  Tak jak lubię najbardziej 
-                  Śmieszna jest 
-                  Urocza 
-
-                  Odwracam się w stronę ciemności 
-                  A Ciebie tam nie ma
-                  Dlaczego?
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="co-nas-uczynilo">Co nas uczyniło?</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="nowy-czlowiek">
+                <span class="accordion-link-item__title">Nowy człowiek</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="co-nas-uczynilo-text">
-                  Konsylium zdarzeń 
-                  Zgromadzenie losu 
-                  Konklawe przeznaczenia
-                  Rada czystych przypadków 
-                  Trybunał szczęścia 
-                  Zebranie momentów 
-                  Posiedzenie decyzji 
-                  Forum zdrowego rozsądku 
-                  Zamknięty krąg wychowania 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="spektrum">Spektrum</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-nowy-czlowiek" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="wygnaniec">
+                <span class="accordion-link-item__title">Wygnaniec</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="spektrum-text">
-                  Zawładnąłem spektrum 
-                  Jestem cały czas obecny 
-                  Wszystko widzę
-                  Wszystko rejestruje 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-wygnaniec" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Jestem wszystkim wszędzie 
-                  I na wszystko wpływam 
-                  Pociągam za sznurki 
-                  W dowolnym wymiarze 
-
-                  Ujarzmiłem spektrum 
-                  Wszystko mnie otacza 
-                  Czuję każdy akcent 
-                  Poezji wszechświata 
-
-                  Słyszę szum kosmosu 
-                  Nieme drganie tkanek 
-                  Chwytam ciche szepty 
-                  I głośne wołanie 
-
-                  Uwolniłem spektrum 
-                  Wszechmoc w moich dłoniach 
-                  Muszę trwać w umysłach 
-                  A wieczność to agonia
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="ktos">Ktoś</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="hayden">
+                <span class="accordion-link-item__title">Hayden</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="ktos-text">
-                  Ktoś zaśpiewał i głupio zatańczył
-                  Ktoś inny zrobił śmieszną minę
-                  Która już dawno wszystkim obrzydła
-                  Ktoś setny raz wykonał tą samą sztuczkę
-                  Mając nadzieję, że jeszcze kogoś rozbawi
-                  Ktoś wykręcił niezły numer
-                  Ale wszyscy już dawno to widzieli
-                  Ktoś znów nabrał tych samych ludzi
-                  Tą samą, sprawdzoną metodą
-                  Komuś udało się nawet
-                  Wywołac poruszenie
-                  Ale tylko na krótką chwilę
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-hayden" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Ktoś każdą sztukę wystawi
-                  A ludzi jak widać
-                  Ogromnie to bawi
-                  Gdy ktoś jest głupszi
-                  Niż oni sami
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="petla">Pętla</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="ostatnie-cieple-dni">
+                <span class="accordion-link-item__title">Ostatnie, ciepłe dni</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="petla-text">
-                  Nie zawsze mamy to czego chcemy
-                  Chcemy tego czego nie możemy mieć 
-                  To czego szukamy jeszcze się nie zdarzyło 
-                  To co się zdarzyło definiuje to czego szukamy
-                  Odwieczna walka czasu 
-                  Z pragnieniem 
-                  Czy zdążymy?
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-ostatnie-cieple-dni" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  A może to już?
-                  To co mamy 
-                  Nie trzeba szukać
-                  Już dłużej 
-                  Więcej 
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="moj-pamietnik">
+                <span class="accordion-link-item__title">Mój pamiętnik</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-moj-pamietnik" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Kto wygra?
-                  Czas?
-                  Czy pragnienie?
-                </p>
-              </div>
-            </details>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="czarna-kosmata-postac">
+                <span class="accordion-link-item__title">Czarna, kosmata postać</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-czarna-kosmata-postac" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-  
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="co-nas-uczynilo">
+                <span class="accordion-link-item__title">Co nas uczyniło?</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-co-nas-uczynilo" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="spektrum">
+                <span class="accordion-link-item__title">Spektrum</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-spektrum" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="ktos">
+                <span class="accordion-link-item__title">Ktoś</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-ktos" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="petla">
+                <span class="accordion-link-item__title">Pętla</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="pustka-petla" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
           </div>
 
           <p class="accordion-counter" data-accordion-counter>

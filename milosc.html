@@ -88,9 +88,6 @@
               </div>
 
               <div class="accordion-actions" aria-label="Akcje listy">
-                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-toggle-all aria-pressed="false">
-                  Rozwiń wszystkie
-                </button>
                 <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-favorites aria-pressed="false">
                   Ulubione
                 </button>
@@ -101,411 +98,153 @@
             </div>
           </div>
 
-          <div class="accordion-list">
+          <div class="accordion-link-list" aria-label="Lista utworów">
             <p class="accordion-empty" data-accordion-empty hidden>Brak wyników dla tego wyszukiwania.</p>
 
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="gdzie-sie-schowalem">Gdzie się schowałem?</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="gdzie-sie-schowalem">
+                <span class="accordion-link-item__title">Gdzie się schowałem?</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-czym-jest-milosc" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="gdzie-sie-schowalem-text">
-                  Mogę się ukryć pod płaszczem Twoich włosów 
-                  Przycupnąć cicho pod rąbkiem spódnicy 
-                  Mogę się zaszyć między guzikami 
-                  W wełnianym swetrze być małym okruchem 
-                  Możesz nosić mnie w butach 
-                  Lub na dnie kieszeni 
-                  Mogę być kroplą Twojego zapachu 
-                  I jak rzęsa czekać na policzku 
-                  Mogę gdzieś leżeć we wczorajszym praniu
-                  Zalegać w porzuconej kurtce 
-                  Mogę być ziarnem porannej kawy 
-                  Ukrytym kurzem co leży pod łóżkiem ?oknem
-                  Możesz mieć mnie na końcu języka ?trzymac
-                  Ale nigdy nie złożyć w zdanie 
-                  Mogę być myślą, która umyka
-                  Możesz nie wiedzieć 
-                  Gdzie się schowałem
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="daj-lyk">Daj łyk*</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-czym-jest-milosc" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="daj-lyk">
+                <span class="accordion-link-item__title">Daj łyk*</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-kiedy-uczucie-staje-sie-obsesja" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="daj-lyk-text">
-                  Daj łyk żyć 
-                  Chciałem Ciebie łyk 
-                  Ten łyk 
-                  To moje sto żyć 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-kiedy-uczucie-staje-sie-obsesja" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Trzeba iść spać 
-                  A ja spragniony Ciebie 
-                  Pod tym gołym niebem 
-                  Biorę łyk 
-                  Łyk Ciebie 
-
-                  Ten łyk 
-                  To jak łyk stu żyć 
-                  Które żyłbym 
-                  Pragnąc Ciebie 
-
-                  Ten łyk 
-                  To moje sto żyć 
-                  Moje zniewolenie 
-
-                  Ze słońcem 
-                  Księżycem 
-                  I Tobą 
-                  Pod gołym niebem 
-
-                  Daj łyk 
-                  Daj łyk siebie 
-
-                  *na bazie Kasia Lins, Pezet - Sto żyć
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="cieplo-zimno">Ciepło-Zimno</span>
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="cieplo-zimno">
+                <span class="accordion-link-item__title">Ciepło-Zimno</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-czy-bliskosc-potrzebuje-slow" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="cieplo-zimno-tex">
-                  Ciepły dym 
-                  I Ty ciepła, rozgrzana, rozpalona 
-                  Ciepłe łóżko 
-                  Skwar 
-                  Na moich zimnych dłoniach 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-czy-bliskosc-potrzebuje-slow" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Ciepły dym 
-                  I Ty ciepła, płomienna, rozżarzona 
-                  Ciepłe słowa 
-                  Upał
-                  Na moich zimnych dłoniach 
-
-                  Chłodny dym
-                  I Ty chłodny, zmarznięty, wyziębiały
-                  Chłodny wzrok
-                  Zmarzlina 
-                  A niegdyś tak rozgrzany 
-
-                  Chłodny dym
-                  I Ty chłodny, zziębnięty i skostniały
-                  Chłodne palce 
-                  Mróz 
-                  A niegdyś tak rozgrzany
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="spokoj">Spokój</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="spokoj">
+                <span class="accordion-link-item__title">Spokój</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-jak-cialo-pamieta-uczucie" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="spokoj-text">
-                  Jest kobieta i jest gitara 
-                  Jest spokój 
-                  Za oknem pada śnieg 
-                  Jest poranek 
-                  Może nawet będzie kawa 
-                  Chociaż wolę rum 
-                  Jest koszula i są dwa ciała 
-                  Burza włosów 
-                  A za oknem pada śnieg 
-                  Jest ciekawość, dym cygara 
-                  Pobudzona krew 
-                  Jest kobieta i jest gitara 
-                  A w głośniku 
-                  Harry James
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="dla-mnie">Dla mnie</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-jak-cialo-pamieta-uczucie" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="dla-mnie">
+                <span class="accordion-link-item__title">Dla mnie</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="dla-mnie-text">
-                  Dziś jest dzień dla mnie 
-                  Cały świat jest dziś dla mnie 
-                  Ty jesteś dla mnie 
-                  Tutaj 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Twoje oczy całe dla mnie 
-                  Mam je na własność 
-                  Otwierasz je dla mnie
-                  Zamykasz
-
-                  Cały świat jest dziś dla mnie 
-                  Dla mnie noc 
-
-                  I Ty
-                  Dla mnie
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="za-miliony">Za miliony</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="za-miliony">
+                <span class="accordion-link-item__title">Za miliony</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="za-miliony-text">
-                  Gdybym wygrał miliony 
-                  Byłbym spokojny 
-                  O Ciebie 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Za miliony 
-                  Wrócił bym na tą łąkę 
-                  Na tamten trakt
-
-                  Leżeć 
-                  Wchłonąć w ziemię 
-
-                  Za miliony
-                  Długich lat 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="poranek">Poranek</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="poranek">
+                <span class="accordion-link-item__title">Poranek</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="poranek-text">
-                  Biała koszula
-                  Nieco pogięta 
-                  Nieużywana 
-                  Drewniana łyżka 
-                  Palcami giętka 
-                  Bose stopy 
-                  Na zimnym kwadracie 
-                  Zwiastują uszy 
-                  Wielkie zamieszanie 
-                  Małej radości 
-                  Ciepły chleb był 
-                  Akurat dzisiaj 
-                  Bez włosów 
-                  Chociaż było blisko 
-                  Słońce grzeje 
-                  Chyba zjemy
-                  Na balkonie 
-                  Trochę później 
-                  Koniec płyty 
-                  Wielkie zamieszanie 
-                  Drewniana łyżka 
-                  Tańczy 
-                  Na zimnym kwadracie 
-                  Nieco pogięta 
-                  Na stopach giętka 
-                  Chyba podarła 
-                  Ci się sukienka 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  I słońce grzeje 
-                  Akurat dzisiaj
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="ciekawosc-bolu">Ciekawość bólu</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="ciekawosc-bolu">
+                <span class="accordion-link-item__title">Ciekawość bólu</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="ciekawosc-bolu-text">
-                  Siedzę zgarbiony 
-                  Ręką podpieram brodę 
-                  Małym palcem dotykam ust 
-                  Przesuwam nim po wargach 
-                  Manifestując zadumę 
-                  Czasem go lekko przygryzam 
-                  Znasz to uczucie...
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Coś Cię boli 
-                  Ale nie możesz przestać tego robić 
-                  Dotykać 
-                  Sprawdzać 
-                  Przygryzać
-                  To ciekawość 
-
-                  Ciekawość bólu 
-                  Ciekawość tego jak boli 
-
-                  Tak samo jest z kochaniem 
-                  Wiesz, że to boli 
-                  A i tak Cię to trzyma w garści 
-                  Przyciąga 
-                  Jak zakazane 
-                  Przypomina
-                  Jak jest przyjemnie 
-                  Gdy boli 
-
-                  A Ty to sprawdzasz 
-                  Przygryzasz
-                  Dotykasz 
-                  I lubisz to robić 
-
-                  Lubisz kochać 
-                  I lubisz jak boli 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="chyba-sie-gubie">Chyba się gubię</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="chyba-sie-gubie">
+                <span class="accordion-link-item__title">Chyba się gubię</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="chyba-sie-gubie-text">
-                  Ja stoję w wannie 
-                  Woda stoi w wannie 
-                  Biorę prysznic?
-                  Czy juz się kąpie?
-                  Wanna do połowy pusta 
-                  I połowa jest pełna 
-                  Nie wiem co robię 
-                  Chyba się gubię 
-                  Chciałem tylko 
-                  Oczyścić głowę 
-                  A zaraz będę 
-                  Po jakimś ślubie 
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
-                  Chyba się gubię!
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="woda-rzeka">Woda i rzeka</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="woda-rzeka">
+                <span class="accordion-link-item__title">Woda i rzeka</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="woda-rzeka-text">
-                  Woda jest bardzo 
-                  Delikatna i przyjemna 
-                  Rozpływa się w ustach 
-                  Smakuje przytulnie 
-                  Fajnie, że zawsze jest 
-                  Nie trzeba przejmować się 
-                  Jej brakiem 
-                  Zawsze będzie tu płynąć 
-                  Z prawej strony 
-                  Zawsze będzie rzeka
-                  Rzeka zawsze 
-                  Tu jest
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="cala">Cała</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="cala">
+                <span class="accordion-link-item__title">Cała</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="cala-text">
-                  Nie masz albo duszy 
-                  &nbsp Albo ciała 
-                  &nbsp&nbsp Nie wiem 
-                  &nbsp&nbsp&nbsp Którego 
-                  Bo nie ma opcji 
-                  By jedna osoba 
-                  Była tak 
-                  Piękna 
-                  Naraz 
-                  Cała
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="staczam">Staczam</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="staczam">
+                <span class="accordion-link-item__title">Staczam</span>
                 <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="staczam-text">
-                  Źle się prowadzę 
-                  Ze mną się staczasz 
-                  Często nie wracam 
-                  A Ty zawsze, zawsze wracasz 
-                  Ciągle się gubię 
-                  Ciągle się staczam 
-                  I Ty mnie kochana 
-                  Za coś 
-                  Przepraszasz?
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2025">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="spale-te-wiersze">Spalę te wiersze</span>
-                <span class="accordion-summary__tag">2025</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="spale-te-wiersze-text">
-                  Kiedyś spalę te wiersze
-                  Bo i tak masz je gdzieś
-                  Rozpalę ogień i sam z nimi wejdę
-                  A z nimi spalę moją udrękę
-                  Spalę te wiersze
-                  Rozpalę ogień i rzucę w płomienie
-                  A wtedy zobaczysz
-                  Jak płoną dla Ciebie
-                  Spalę te wiersze
-                  Nie dowiesz się
-                  Co w nich jest
-                </p>
-              </div>
-            </details>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
 
+            <div class="accordion-link-item" data-accordion-year="2025">
+              <a class="accordion-link-item__main" href="#" data-testid="spale-te-wiersze">
+                <span class="accordion-link-item__title">Spalę te wiersze</span>
+                <span class="accordion-summary__tag">2025</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="milosc-co-zostaje-po-odejsciu" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
           </div>
+
           <p class="accordion-counter" data-accordion-counter>
             Liczba tekstów: <span data-accordion-counter-value>0</span>
           </p>

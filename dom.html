@@ -88,9 +88,6 @@
               </div>
 
               <div class="accordion-actions" aria-label="Akcje listy">
-                <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-toggle-all aria-pressed="false">
-                  Rozwiń wszystkie
-                </button>
                 <button class="accordion-filter accordion-filter--utility" type="button" data-accordion-favorites aria-pressed="false">
                   Ulubione
                 </button>
@@ -101,156 +98,64 @@
             </div>
           </div>
 
-          <div class="accordion-list">
+          <div class="accordion-link-list" aria-label="Lista utworów">
             <p class="accordion-empty" data-accordion-empty hidden>Brak wyników dla tego wyszukiwania.</p>
 
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="wasy-kwiaty">Wąsy i kwiaty</span>
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="wasy-kwiaty">
+                <span class="accordion-link-item__title">Wąsy i kwiaty</span>
                 <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-czym-jest-milosc" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="wasy-kwiaty-text">
-                  W rodzinnym domu 
-                  Zawsze było ciepło 
-                  Pokaźne fiołki zdobiły okna 
-                  Bielą i fioletem
-                  Radosne kwiaty - na jej sukience 
-                  Też były - niebieskiej 
-                  I były też wąsy taty 
-                  Było ciepło 
-                  I były kwiaty 
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="mama-nie-spi">Mama nie śpi</span>
-                <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-kiedy-uczucie-staje-sie-obsesja" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="mama-nie-spi-text">
-                  Mama nie śpi 
-                  Niebieska w kwiaty 
-                  Trwa 
-                  Oczekuje 
-                  Przybywa 
-
-                  A ja się trzęsę 
-                  Ze słońcem czarnym
-                  Ginę
-                  Gnije 
-                  Podążam 
-                  Do smutnej śmierci 
-                  A mama nie wie
-
-                  Nie śpi 
-                  Niebieska w kwiaty
-                  Czuwa
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="milczenie">Milczenie </span>
-                <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-czy-bliskosc-potrzebuje-slow" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="milczenie-text">
-                  Gdy w domu nie ma jedzenia 
-                  Mama sypie cukrem po oczach 
-                  Tata milczy 
-                  Nikt go nie wini 
-                  Nie jego wina 
-
-                  Gdy w domu nie ma jedzenia 
-                  Mama słodzi mam głowy 
-                  Tata milczy 
-                  Bezradnie 
-                  Zerka 
-
-                  Wiem o czym milczysz 
-                  Tato 
-
-                  Możesz spać 
-                  Spokojnie
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="pora-spac">Pora spać</span>
-                <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-jak-cialo-pamieta-uczucie" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="pora-spac-text">
-                  Synek, do spania 
-                  Mamo... Ale ja nie mam pięciu lat 
-                  Do spania powiedziałam 
-                  Przecież nie jestem już dzieckiem 
-
-                  My idziemy spać 
-                  Tutaj masz pościel 
-                  Ręczniki wiesz gdzie, weźmiesz sobie 
-                  Wiem mamo 
-                  Mam już trzydzieści lat 
-
-                  Któregoś dnia będę mężczyzną 
-                  A Ty mi kołysankę zaśpiewasz
-                </p>
-              </div>
-            </details>
-            <details class="accordion-item" data-accordion-year="2026">
-              <summary class="accordion-summary accordion-summary--with-heart">
-                <span data-testid="z-bogiem">Z Bogiem </span>
-                <span class="accordion-summary__tag">2026</span>
-                <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-jak-cialo-pamieta-uczucie" aria-label="Polub pytanie" aria-pressed="false">
-                  <span aria-hidden="true">♡</span>
-                </button>
-              </summary>
-              <div class="accordion-content">
-                <p class="poem" data-testid="z-bogiem-text">
-                  Z Bogiem nie zadzieram 
-                  Nie obrażam 
-                  Nie przeczę 
-                  Stoję z boku, podziwiam 
-
-                  Z Bogiem mnie chowano 
-                  Więc czasem pogadam 
-                  Pomówię od święta 
-                  Posłucham 
-
-                  Z Bogiem się mijam
-                  Z szacunku kiwam głową 
-                  Uklękne jak trzeba 
-                  Pochwalę 
-
-                  Z Bogiem jestem szczery 
-                  Nie kryje słabości 
-                  Jeśli jakiś tam jest 
-                  To wszystko już wie 
-
-                  Z Bogiem czy bez 
-                  Nie w tym jest rzecz 
-                  By zginąć się w pół
-                  Nie mając w sobie 
-                  Choć trochę miłości 
-                </p>
-              </div>
-            </details>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-czym-jest-milosc" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
             </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="mama-nie-spi">
+                <span class="accordion-link-item__title">Mama nie śpi</span>
+                <span class="accordion-summary__tag">2026</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-kiedy-uczucie-staje-sie-obsesja" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="milczenie">
+                <span class="accordion-link-item__title">Milczenie</span>
+                <span class="accordion-summary__tag">2026</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-czy-bliskosc-potrzebuje-slow" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="pora-spac">
+                <span class="accordion-link-item__title">Pora spać</span>
+                <span class="accordion-summary__tag">2026</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-jak-cialo-pamieta-uczucie" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+
+            <div class="accordion-link-item" data-accordion-year="2026">
+              <a class="accordion-link-item__main" href="#" data-testid="z-bogiem">
+                <span class="accordion-link-item__title">Z Bogiem</span>
+                <span class="accordion-summary__tag">2026</span>
+              </a>
+              <span class="accordion-link-item__lock" aria-hidden="true">&#x1F512;&#xFE0E;</span>
+              <button class="accordion-summary__heart" type="button" data-accordion-heart data-heart-id="dom-jak-cialo-pamieta-uczucie" aria-label="Polub tekst" aria-pressed="false">
+                <span aria-hidden="true">♡</span>
+              </button>
+            </div>
+          </div>
 
           <p class="accordion-counter" data-accordion-counter>
             Liczba tekstów: <span data-accordion-counter-value>0</span>

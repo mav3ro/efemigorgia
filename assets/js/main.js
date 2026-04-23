@@ -13,6 +13,9 @@ const contactForm = document.querySelector("[data-contact-form]");
 const poetNoteOpenButton = document.querySelector("[data-note-open]");
 const poetNoteModal = document.querySelector("[data-note-modal]");
 const poetNoteCloseButtons = document.querySelectorAll("[data-note-close]");
+const transliterationModal = document.querySelector("[data-transliteration-modal]");
+const transliterationOpenButtons = document.querySelectorAll("[data-transliteration-open]");
+const transliterationCloseButtons = document.querySelectorAll("[data-transliteration-close]");
 const accordionItems = document.querySelectorAll(".accordion-item");
 const contactSubmitButton = contactForm ? contactForm.querySelector(".contact-form__submit") : null;
 const contactFieldNodes = contactForm
@@ -35,6 +38,8 @@ const contactFieldLabels = {
 };
 const scrollTopButtons = document.querySelectorAll("[data-scroll-top]");
 const accordionHeartButtons = document.querySelectorAll("[data-accordion-heart]");
+const poemLineNodes = document.querySelectorAll("[data-poem-line]");
+const poemRevealAllButton = document.querySelector("[data-poem-reveal-all]");
 const heartStorageKey = "efemigorgia:liked-hearts";
 const defaultSecretHash = "128df13c1e54ffaaafcc9d07ec7427d61f764214e6ae0321de23c94d261d0860";
 const pageName = (() => {
@@ -58,6 +63,7 @@ const setTestIdBySelector = (selector, testId, root = document) => {
 
 const isSecretAccordionItem = (item) =>
   item instanceof HTMLElement && item.classList.contains("accordion-item--secret");
+const isAccordionDetailsItem = (item) => item instanceof HTMLDetailsElement;
 
 const assignCommonTestIds = () => {
   setTestId(document.body, `page-${pageName}`);
@@ -134,6 +140,42 @@ const assignPosterPageTestIds = () => {
   setTestId(document.querySelector(".text-stage__body"), "de-mour-body");
 };
 
+const assignGlyphPoemPageTestIds = () => {
+  setTestId(document.querySelector("main.site-main--page"), "main-wielki-czas");
+  setTestId(document.querySelector(".glyph-stage"), "wielki-czas-stage");
+  setTestId(document.querySelector(".glyph-stage__title"), "wielki-czas-title");
+  setTestId(document.querySelector("[data-transliteration-open]"), "wielki-czas-transliteration-open");
+  setTestId(transliterationModal, "wielki-czas-transliteration-modal");
+  setTestId(document.querySelector(".transliteration-modal__canvas"), "wielki-czas-transliteration-canvas");
+  setTestId(poemRevealAllButton, "wielki-czas-reveal-all");
+
+  poemLineNodes.forEach((line, index) => {
+    const number = index + 1;
+    setTestId(line, `wielki-czas-line-${number}`);
+    setTestId(line.querySelector("[data-poem-text]"), `wielki-czas-line-text-${number}`);
+    setTestId(line.querySelector("[data-poem-toggle]"), `wielki-czas-line-toggle-${number}`);
+  });
+};
+
+const initGalleryReveal = () => {
+  const galleryGrid = document.querySelector(".gallery-grid");
+  const galleryTiles = Array.from(document.querySelectorAll(".gallery-tile"));
+
+  if (!galleryGrid || !galleryTiles.length) {
+    return;
+  }
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  galleryGrid.classList.add("is-staged");
+
+  requestAnimationFrame(() => {
+    galleryGrid.classList.add("is-revealed");
+  });
+};
+
 const assignAccordionTestIds = (baseName) => {
   setTestId(document.querySelector("main.site-main--accordion"), `main-${baseName}`);
   setTestId(document.querySelector(".accordion-stage"), `${baseName}-accordion-stage`);
@@ -146,17 +188,17 @@ const assignAccordionTestIds = (baseName) => {
   setTestId(document.querySelector("[data-accordion-toggle-all]"), `${baseName}-toggle-all`);
   setTestId(document.querySelector("[data-accordion-favorites]"), `${baseName}-favorites-button`);
   setTestId(document.querySelector("[data-accordion-random]"), `${baseName}-random-button`);
-  setTestId(document.querySelector(".accordion-list"), `${baseName}-accordion-list`);
+  setTestId(document.querySelector(".accordion-list, .accordion-link-list"), `${baseName}-accordion-list`);
   setTestId(document.querySelector("[data-accordion-empty]"), `${baseName}-accordion-empty`);
   setTestId(document.querySelector("[data-accordion-counter]"), `${baseName}-accordion-counter`);
   setTestId(document.querySelector("[data-accordion-counter-value]"), `${baseName}-accordion-counter-value`);
   setTestId(document.querySelector("[data-scroll-top]"), `${baseName}-scroll-top`);
 
-  document.querySelectorAll(".accordion-item").forEach((item, index) => {
+  document.querySelectorAll(".accordion-item, .accordion-link-item").forEach((item, index) => {
     const itemNumber = index + 1;
     const isSecret = isSecretAccordionItem(item);
     const suffix = isSecret ? "secret" : `${itemNumber}`;
-    const summary = item.querySelector(".accordion-summary");
+    const summary = item.querySelector(".accordion-summary, .accordion-link-item__main");
     const content = item.querySelector(".accordion-content");
     const heart = item.querySelector("[data-accordion-heart]");
 
@@ -177,12 +219,16 @@ const assignPageSpecificTestIds = () => {
       break;
     case "tworczosc":
       assignGalleryTestIds();
+      initGalleryReveal();
       break;
     case "efemigorgia":
       assignTextStageTestIds("efemigorgia");
       break;
     case "de-mour":
       assignPosterPageTestIds();
+      break;
+    case "wielki-czas":
+      assignGlyphPoemPageTestIds();
       break;
     case "milosc":
     case "chec":
@@ -274,7 +320,8 @@ const setMenuState = (isOpen) => {
 const syncModalState = () => {
   const hasOpenModal = Boolean(
     (contactModal && !contactModal.hidden) ||
-    (poetNoteModal && !poetNoteModal.hidden)
+    (poetNoteModal && !poetNoteModal.hidden) ||
+    (transliterationModal && !transliterationModal.hidden)
   );
 
   body.classList.toggle("modal-open", hasOpenModal);
@@ -295,6 +342,7 @@ if (navToggle && mobileMenu) {
       setMenuState(false);
       closeContactModal();
       closePoetNoteModal();
+      closeTransliterationModal();
     }
   });
 }
@@ -332,6 +380,24 @@ const closePoetNoteModal = () => {
   }
 
   poetNoteModal.hidden = true;
+  syncModalState();
+};
+
+const openTransliterationModal = () => {
+  if (!transliterationModal) {
+    return;
+  }
+
+  transliterationModal.hidden = false;
+  syncModalState();
+};
+
+const closeTransliterationModal = () => {
+  if (!transliterationModal) {
+    return;
+  }
+
+  transliterationModal.hidden = true;
   syncModalState();
 };
 
@@ -500,6 +566,64 @@ if (poetNoteOpenButton) {
 poetNoteCloseButtons.forEach((button) => {
   button.addEventListener("click", closePoetNoteModal);
 });
+
+transliterationOpenButtons.forEach((button) => {
+  button.addEventListener("click", openTransliterationModal);
+});
+
+transliterationCloseButtons.forEach((button) => {
+  button.addEventListener("click", closeTransliterationModal);
+});
+
+const setPoemLineState = (line, isRevealed) => {
+  if (!(line instanceof HTMLElement)) {
+    return;
+  }
+
+  const textNode = line.querySelector("[data-poem-text]");
+  const toggleButton = line.querySelector("[data-poem-toggle]");
+
+  if (!(textNode instanceof HTMLElement)) {
+    return;
+  }
+
+  line.classList.toggle("is-revealed", isRevealed);
+
+  if (toggleButton instanceof HTMLButtonElement) {
+    toggleButton.setAttribute("aria-pressed", String(isRevealed));
+    toggleButton.setAttribute(
+      "aria-label",
+      isRevealed ? "Ukryj zapis zwykłymi literami" : "Pokaż zapis zwykłymi literami"
+    );
+  }
+};
+
+if (poemLineNodes.length) {
+  poemLineNodes.forEach((line) => {
+    const textNode = line.querySelector("[data-poem-text]");
+    const toggleButton = line.querySelector("[data-poem-toggle]");
+
+    if (!(textNode instanceof HTMLElement)) {
+      return;
+    }
+
+    setPoemLineState(line, false);
+
+    if (toggleButton instanceof HTMLButtonElement) {
+      toggleButton.addEventListener("click", () => {
+        const isRevealed = line.classList.contains("is-revealed");
+        setPoemLineState(line, !isRevealed);
+      });
+    }
+  });
+
+  if (poemRevealAllButton instanceof HTMLButtonElement) {
+    poemRevealAllButton.addEventListener("click", () => {
+      poemLineNodes.forEach((line) => setPoemLineState(line, true));
+      poemRevealAllButton.setAttribute("aria-pressed", "true");
+    });
+  }
+}
 
 if (contactForm) {
   contactForm.setAttribute("novalidate", "");
@@ -958,9 +1082,13 @@ if (accordionFilterRoots.length) {
     const favoritesButton = root.querySelector("[data-accordion-favorites]");
     const randomButton = root.querySelector("[data-accordion-random]");
     const counterValue = stage.querySelector("[data-accordion-counter-value]");
-    const accordionList = stage ? stage.querySelector(".accordion-list") : null;
+    const accordionList = stage ? stage.querySelector(".accordion-list, .accordion-link-list") : null;
     const filterItems = accordionList
-      ? Array.from(accordionList.querySelectorAll(".accordion-item[data-accordion-year]"))
+      ? Array.from(
+          accordionList.querySelectorAll(
+            ".accordion-item[data-accordion-year], .accordion-link-item[data-accordion-year]"
+          )
+        )
       : [];
     const emptyState = accordionList ? accordionList.querySelector("[data-accordion-empty]") : null;
 
@@ -1026,7 +1154,7 @@ if (accordionFilterRoots.length) {
         return;
       }
 
-      const visibleItems = getUnlockedVisibleItems();
+      const visibleItems = getUnlockedVisibleItems().filter((item) => isAccordionDetailsItem(item));
       const hasVisibleItems = visibleItems.length > 0;
       const allOpen = hasVisibleItems && visibleItems.every((item) => item.open);
 
@@ -1052,10 +1180,14 @@ if (accordionFilterRoots.length) {
         item.hidden = !isVisible;
 
         if (!isVisible) {
-          item.open = false;
-        } else {
-          visibleCount += 1;
+          if (isAccordionDetailsItem(item)) {
+            item.open = false;
+          }
+
+          return;
         }
+
+        visibleCount += 1;
       });
 
       if (emptyState) {
@@ -1093,7 +1225,7 @@ if (accordionFilterRoots.length) {
 
     if (toggleAllButton) {
       toggleAllButton.addEventListener("click", () => {
-        const visibleItems = getUnlockedVisibleItems();
+        const visibleItems = getUnlockedVisibleItems().filter((item) => isAccordionDetailsItem(item));
         const allOpen = visibleItems.length > 0 && visibleItems.every((item) => item.open);
 
         visibleItems.forEach((item) => {
@@ -1112,7 +1244,9 @@ if (accordionFilterRoots.length) {
           const previousRandomItem = randomItem;
           randomItem = null;
           runFilter();
-          previousRandomItem.open = false;
+          if (isAccordionDetailsItem(previousRandomItem)) {
+            previousRandomItem.open = false;
+          }
           updateToggleAllButton();
           return;
         }
@@ -1131,7 +1265,9 @@ if (accordionFilterRoots.length) {
 
         randomItem = selectionPool[randomIndex];
         runFilter();
-        randomItem.open = true;
+        if (isAccordionDetailsItem(randomItem)) {
+          randomItem.open = true;
+        }
         updateToggleAllButton();
       });
     }

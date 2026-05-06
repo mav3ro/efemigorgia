@@ -15,6 +15,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/images/logow.png">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/home-search-index.js" defer></script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -83,6 +84,27 @@
 
           <div class="hero__shade"></div>
           <div class="hero__noise"></div>
+        </div>
+
+        <div class="hero__content hero__content--search">
+          <div class="hero-search" data-hero-search>
+            <form class="hero-search__form" data-hero-search-form>
+              <input
+                class="hero-search__input"
+                id="hero-search-input"
+                type="search"
+                placeholder="Wpisz frazę"
+                aria-label="Szukaj po tytułach wierszy"
+                autocomplete="off"
+                data-hero-search-input
+              >
+              <button class="hero-search__button" type="submit">Szukaj</button>
+            </form>
+
+            <p class="hero-search__status" data-hero-search-status aria-live="polite"></p>
+
+            <div class="hero-search__results" data-hero-search-results hidden></div>
+          </div>
         </div>
 
       </section>

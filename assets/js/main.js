@@ -16,6 +16,9 @@ const poetNoteCloseButtons = document.querySelectorAll("[data-note-close]");
 const transliterationModal = document.querySelector("[data-transliteration-modal]");
 const transliterationOpenButtons = document.querySelectorAll("[data-transliteration-open]");
 const transliterationCloseButtons = document.querySelectorAll("[data-transliteration-close]");
+const poemBonusModal = document.querySelector("[data-poem-bonus-modal]");
+const poemBonusTrigger = document.querySelector("[data-poem-bonus-open]");
+const poemBonusCloseButtons = document.querySelectorAll("[data-poem-bonus-close]");
 const accordionItems = document.querySelectorAll(".accordion-item");
 const contactSubmitButton = contactForm ? contactForm.querySelector(".contact-form__submit") : null;
 const contactFieldNodes = contactForm
@@ -39,15 +42,308 @@ const contactFieldLabels = {
 const scrollTopButtons = document.querySelectorAll("[data-scroll-top]");
 const accordionHeartButtons = document.querySelectorAll("[data-accordion-heart]");
 const poemLineNodes = document.querySelectorAll("[data-poem-line]");
-const poemRevealAllButton = document.querySelector("[data-poem-reveal-all]");
+const poemTryLuckButton = document.querySelector("[data-poem-random-reveal]");
+const poemPasswordForm = document.querySelector("[data-poem-password-form]");
+const poemPasswordInput = document.querySelector("[data-poem-password]");
+const poemPasswordSubmit = document.querySelector("[data-poem-password-submit]");
 const heartStorageKey = "efemigorgia:liked-hearts";
 const defaultSecretHash = "128df13c1e54ffaaafcc9d07ec7427d61f764214e6ae0321de23c94d261d0860";
+const glyphPoemPassword = "DDTGRS";
+const glyphPoemRandomRevealRatio = 0.4;
+const glyphPoemAlphabetUpper = Array.from("AĄBCĆDEĘFGHIJKLŁMNŃOÓPQRSŚTUVWXYZŹŻ");
+const glyphPoemAlphabetLower = Array.from("aąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż");
 const pageName = (() => {
   const rawPath = window.location.pathname.split("/").pop() || "index.html";
   const cleanPath = rawPath.split("?")[0].split("#")[0];
 
   return cleanPath.replace(/\.html$/i, "") || "index";
 })();
+const poemSearchPageLabels = {
+  "milosc.html": "Miłość",
+  "pustka.html": "Pustka",
+  "wola.html": "Wola",
+  "erotyzm.html": "Erotyzm",
+  "slonce.html": "Słońce",
+  "smierc.html": "Śmierć",
+  "przeklenstwo.html": "Przekleństwo",
+  "krzyk.html": "Krzyk",
+  "dom.html": "Dom"
+};
+
+const normalizeSearchText = (value = "") =>
+  value
+    .toString()
+    .normalize("NFD")
+    .toLowerCase()
+    .replace(/ł/g, "l")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const createPoemSlug = (value = "") => normalizeSearchText(value).replace(/\s+/g, "-");
+
+const buildPoemSearchDestination = (page, href, title) => {
+  const basePath = href && href !== "#" ? href : page;
+  const separator = basePath.includes("?") ? "&" : "?";
+
+  return `${basePath}${separator}poem=${encodeURIComponent(createPoemSlug(title))}`;
+};
+
+const getAccordionSummaryTitleNode = (summary) => {
+  if (!(summary instanceof HTMLElement)) {
+    return null;
+  }
+
+  return (
+    Array.from(summary.children).find(
+      (child) =>
+        child instanceof HTMLSpanElement &&
+        !child.classList.contains("accordion-summary__tag")
+    ) || null
+  );
+};
+
+const getHomePoemSearchEntries = () => {
+  const rawIndex = window.homeSearchIndex;
+
+  if (!rawIndex || typeof rawIndex !== "object") {
+    return [];
+  }
+
+  const entries = [];
+  const seen = new Set();
+
+  Object.entries(rawIndex).forEach(([page, items]) => {
+    if (!Array.isArray(items)) {
+      return;
+    }
+
+    items.forEach((item) => {
+      const normalizedItem =
+        typeof item === "string"
+          ? { title: item }
+          : item && typeof item === "object"
+            ? item
+            : null;
+
+      if (!normalizedItem || typeof normalizedItem.title !== "string") {
+        return;
+      }
+
+      const title = normalizedItem.title.trim();
+      const href = typeof normalizedItem.href === "string" ? normalizedItem.href.trim() : "";
+      const slug = createPoemSlug(title);
+
+      if (!title || !slug) {
+        return;
+      }
+
+      const destination = buildPoemSearchDestination(page, href, title);
+      const dedupeKey = `${destination}|${slug}`;
+
+      if (seen.has(dedupeKey)) {
+        return;
+      }
+
+      seen.add(dedupeKey);
+      entries.push({
+        title,
+        page,
+        href,
+        slug,
+        destination,
+        category: poemSearchPageLabels[page] || page.replace(/\.html$/i, ""),
+        searchText: normalizeSearchText(title)
+      });
+    });
+  });
+
+  return entries;
+};
+
+const initHomePoemSearch = () => {
+  const root = document.querySelector("[data-hero-search]");
+  const form = document.querySelector("[data-hero-search-form]");
+  const input = document.querySelector("[data-hero-search-input]");
+  const results = document.querySelector("[data-hero-search-results]");
+  const status = document.querySelector("[data-hero-search-status]");
+
+  if (!root || !form || !input || !results || !status) {
+    return;
+  }
+
+  const entries = getHomePoemSearchEntries();
+  let currentMatches = [];
+
+  const renderResults = (matches) => {
+    const fragment = document.createDocumentFragment();
+
+    matches.forEach((entry) => {
+      const link = document.createElement("a");
+      const title = document.createElement("span");
+      const meta = document.createElement("span");
+
+      link.className = "hero-search__result";
+      link.href = entry.destination;
+      title.className = "hero-search__result-title";
+      title.textContent = entry.title;
+      meta.className = "hero-search__result-meta";
+      meta.textContent = entry.category;
+
+      link.append(title, meta);
+      fragment.appendChild(link);
+    });
+
+    results.replaceChildren(fragment);
+    results.hidden = false;
+  };
+
+  const sortMatches = (matches, query) =>
+    matches.sort((left, right) => {
+      const leftScore =
+        left.searchText === query ? 0 : left.searchText.startsWith(query) ? 1 : 2;
+      const rightScore =
+        right.searchText === query ? 0 : right.searchText.startsWith(query) ? 1 : 2;
+
+      if (leftScore !== rightScore) {
+        return leftScore - rightScore;
+      }
+
+      return left.title.localeCompare(right.title, "pl");
+    });
+
+  const updateSearch = () => {
+    const rawQuery = input.value.trim();
+    const normalizedQuery = normalizeSearchText(rawQuery);
+    const queryParts = normalizedQuery ? normalizedQuery.split(" ").filter(Boolean) : [];
+
+    if (!queryParts.length) {
+      currentMatches = [];
+      results.hidden = true;
+      results.replaceChildren();
+      status.textContent = "";
+      return;
+    }
+
+    currentMatches = sortMatches(
+      entries.filter((entry) => queryParts.every((part) => entry.searchText.includes(part))),
+      normalizedQuery
+    );
+
+    if (!currentMatches.length) {
+      results.hidden = true;
+      results.replaceChildren();
+      status.textContent = "Brak tytułów dla tej frazy.";
+      return;
+    }
+
+    renderResults(currentMatches);
+    status.textContent = `Znalezione tytuły: ${currentMatches.length}`;
+  };
+
+  if (!entries.length) {
+    status.textContent = "Baza tytułów jest chwilowo niedostępna.";
+    return;
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (!currentMatches.length) {
+      return;
+    }
+
+    window.location.href = currentMatches[0].destination;
+  });
+
+  input.addEventListener("input", updateSearch);
+};
+
+const revealPoemSearchTargetFromUrl = () => {
+  const poemParam = new URLSearchParams(window.location.search).get("poem");
+  const poemSlug = createPoemSlug(poemParam || "");
+
+  if (!poemSlug) {
+    return;
+  }
+
+  const candidates = [];
+
+  document.querySelectorAll(".accordion-item").forEach((item) => {
+    const titleNode = getAccordionSummaryTitleNode(item.querySelector(".accordion-summary"));
+
+    if (titleNode) {
+      candidates.push({ container: item, titleNode });
+    }
+  });
+
+  document.querySelectorAll(".accordion-link-item").forEach((item) => {
+    const titleNode = item.querySelector(".accordion-link-item__title");
+
+    if (titleNode) {
+      candidates.push({ container: item, titleNode });
+    }
+  });
+
+  const glyphTitle = document.querySelector(".glyph-stage__title");
+  if (glyphTitle) {
+    candidates.push({
+      container: glyphTitle.closest(".glyph-stage__inner") || glyphTitle,
+      titleNode: glyphTitle
+    });
+  }
+
+  const textTitle = document.querySelector(".text-stage__title");
+  if (textTitle) {
+    candidates.push({
+      container: textTitle.closest(".text-stage__inner") || textTitle,
+      titleNode: textTitle
+    });
+  }
+
+  const match = candidates.find(
+    ({ titleNode }) => createPoemSlug(titleNode.textContent || "") === poemSlug
+  );
+
+  if (!match || !(match.container instanceof HTMLElement)) {
+    return;
+  }
+
+  let scrollDelay = 60;
+
+  if (match.container instanceof HTMLDetailsElement && !match.container.open) {
+    const animator = match.container.__accordionAnimator;
+    const canAnimate =
+      animator &&
+      typeof animator.open === "function" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (canAnimate) {
+      animator.open();
+      scrollDelay = 180;
+    } else {
+      match.container.open = true;
+    }
+  }
+
+  window.setTimeout(() => {
+    document.querySelectorAll(".is-search-target").forEach((node) => {
+      node.classList.remove("is-search-target");
+    });
+
+    match.container.classList.add("is-search-target");
+    match.container.scrollIntoView({
+      block: "center",
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth"
+    });
+
+    window.setTimeout(() => {
+      match.container.classList.remove("is-search-target");
+    }, 3200);
+  }, scrollDelay);
+};
 
 const setTestId = (element, testId) => {
   if (!element || !testId) {
@@ -107,6 +403,10 @@ const assignHomeTestIds = () => {
   setTestId(document.querySelector(".hero__media"), "home-hero-media");
   setTestId(document.querySelector("[data-hero-video]"), "home-hero-video");
   setTestId(document.querySelector(".hero__fallback"), "home-hero-fallback");
+  setTestId(document.querySelector("[data-hero-search]"), "home-hero-search");
+  setTestId(document.querySelector("[data-hero-search-input]"), "home-hero-search-input");
+  setTestId(document.querySelector("[data-hero-search-status]"), "home-hero-search-status");
+  setTestId(document.querySelector("[data-hero-search-results]"), "home-hero-search-results");
 };
 
 const assignGalleryTestIds = () => {
@@ -147,13 +447,18 @@ const assignGlyphPoemPageTestIds = () => {
   setTestId(document.querySelector("[data-transliteration-open]"), "wielki-czas-transliteration-open");
   setTestId(transliterationModal, "wielki-czas-transliteration-modal");
   setTestId(document.querySelector(".transliteration-modal__canvas"), "wielki-czas-transliteration-canvas");
-  setTestId(poemRevealAllButton, "wielki-czas-reveal-all");
+  setTestId(poemTryLuckButton, "wielki-czas-random-reveal");
+  setTestId(poemPasswordForm, "wielki-czas-password-form");
+  setTestId(poemPasswordInput, "wielki-czas-password-input");
+  setTestId(poemPasswordSubmit, "wielki-czas-password-submit");
+  setTestId(poemBonusTrigger, "wielki-czas-bonus-open");
+  setTestId(poemBonusModal, "wielki-czas-bonus-modal");
+  setTestId(document.querySelector(".portrait-modal__image"), "wielki-czas-bonus-image");
 
   poemLineNodes.forEach((line, index) => {
     const number = index + 1;
     setTestId(line, `wielki-czas-line-${number}`);
     setTestId(line.querySelector("[data-poem-text]"), `wielki-czas-line-text-${number}`);
-    setTestId(line.querySelector("[data-poem-toggle]"), `wielki-czas-line-toggle-${number}`);
   });
 };
 
@@ -291,6 +596,7 @@ body.appendChild(toastNode);
 
 assignCommonTestIds();
 assignPageSpecificTestIds();
+initHomePoemSearch();
 
 if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
@@ -321,7 +627,8 @@ const syncModalState = () => {
   const hasOpenModal = Boolean(
     (contactModal && !contactModal.hidden) ||
     (poetNoteModal && !poetNoteModal.hidden) ||
-    (transliterationModal && !transliterationModal.hidden)
+    (transliterationModal && !transliterationModal.hidden) ||
+    (poemBonusModal && !poemBonusModal.hidden)
   );
 
   body.classList.toggle("modal-open", hasOpenModal);
@@ -343,6 +650,7 @@ if (navToggle && mobileMenu) {
       closeContactModal();
       closePoetNoteModal();
       closeTransliterationModal();
+      closePoemBonusModal();
     }
   });
 }
@@ -398,6 +706,24 @@ const closeTransliterationModal = () => {
   }
 
   transliterationModal.hidden = true;
+  syncModalState();
+};
+
+const openPoemBonusModal = () => {
+  if (!poemBonusModal) {
+    return;
+  }
+
+  poemBonusModal.hidden = false;
+  syncModalState();
+};
+
+const closePoemBonusModal = () => {
+  if (!poemBonusModal) {
+    return;
+  }
+
+  poemBonusModal.hidden = true;
   syncModalState();
 };
 
@@ -575,52 +901,383 @@ transliterationCloseButtons.forEach((button) => {
   button.addEventListener("click", closeTransliterationModal);
 });
 
+if (poemBonusTrigger) {
+  poemBonusTrigger.addEventListener("click", openPoemBonusModal);
+}
+
+poemBonusCloseButtons.forEach((button) => {
+  button.addEventListener("click", closePoemBonusModal);
+});
+
 const setPoemLineState = (line, isRevealed) => {
   if (!(line instanceof HTMLElement)) {
     return;
   }
 
   const textNode = line.querySelector("[data-poem-text]");
-  const toggleButton = line.querySelector("[data-poem-toggle]");
 
   if (!(textNode instanceof HTMLElement)) {
     return;
   }
 
   line.classList.toggle("is-revealed", isRevealed);
+};
 
-  if (toggleButton instanceof HTMLButtonElement) {
-    toggleButton.setAttribute("aria-pressed", String(isRevealed));
-    toggleButton.setAttribute(
-      "aria-label",
-      isRevealed ? "Ukryj zapis zwykłymi literami" : "Pokaż zapis zwykłymi literami"
-    );
+const preparePoemTextWords = (textNode) => {
+  if (!(textNode instanceof HTMLElement) || textNode.dataset.wordsReady === "true") {
+    return;
   }
+
+  const fragment = document.createDocumentFragment();
+
+  (textNode.textContent || "").split(/(\s+)/).forEach((token) => {
+    if (!token.length) {
+      return;
+    }
+
+    if (/^\s+$/.test(token)) {
+      fragment.append(document.createTextNode(token));
+      return;
+    }
+
+    const wordNode = document.createElement("span");
+
+    wordNode.className = "glyph-poem__word";
+    wordNode.dataset.wordTarget = token;
+    wordNode.textContent = token;
+    fragment.appendChild(wordNode);
+  });
+
+  textNode.textContent = "";
+  textNode.appendChild(fragment);
+  textNode.dataset.wordsReady = "true";
+};
+
+const getPoemWordNodes = () => {
+  const wordNodes = [];
+
+  poemLineNodes.forEach((line) => {
+    wordNodes.push(...Array.from(line.querySelectorAll(".glyph-poem__word")));
+  });
+
+  return wordNodes;
+};
+
+const getPoemAlphabetForCharacter = (character) => {
+  if (glyphPoemAlphabetUpper.includes(character)) {
+    return glyphPoemAlphabetUpper;
+  }
+
+  if (glyphPoemAlphabetLower.includes(character)) {
+    return glyphPoemAlphabetLower;
+  }
+
+  return null;
+};
+
+const stopPoemWordAnimation = (node) => {
+  if (!(node instanceof HTMLElement)) {
+    return;
+  }
+
+  if (typeof node.__poemRevealDelayId === "number") {
+    window.clearTimeout(node.__poemRevealDelayId);
+    node.__poemRevealDelayId = null;
+  }
+
+  if (typeof node.__poemRevealIntervalId === "number") {
+    window.clearInterval(node.__poemRevealIntervalId);
+    node.__poemRevealIntervalId = null;
+  }
+
+  if (typeof node.__poemRevealFrameId === "number") {
+    window.cancelAnimationFrame(node.__poemRevealFrameId);
+    node.__poemRevealFrameId = null;
+  }
+};
+
+const resetPoemWordNode = (node) => {
+  if (!(node instanceof HTMLElement)) {
+    return;
+  }
+
+  stopPoemWordAnimation(node);
+  node.classList.remove("is-revealing", "is-revealed", "is-concealing");
+  node.textContent = node.dataset.wordTarget || node.textContent || "";
+};
+
+const updatePoemRevealButton = (isActive) => {
+  if (!(poemTryLuckButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  poemTryLuckButton.textContent = isActive ? "Zakryj" : "Odkryj";
+  poemTryLuckButton.setAttribute("aria-pressed", String(isActive));
+};
+
+const hidePartialPoemWords = ({ animated = false } = {}) => {
+  getPoemWordNodes().forEach((node) => {
+    if (!(node instanceof HTMLElement)) {
+      return;
+    }
+
+    if (!animated) {
+      resetPoemWordNode(node);
+      return;
+    }
+
+    if (!node.classList.contains("is-revealed") && !node.classList.contains("is-revealing")) {
+      resetPoemWordNode(node);
+      return;
+    }
+
+    stopPoemWordAnimation(node);
+    node.textContent = node.dataset.wordTarget || node.textContent || "";
+    node.classList.remove("is-revealing", "is-revealed", "is-concealing");
+    node.classList.remove("is-concealing");
+    void node.offsetWidth;
+    node.classList.add("is-concealing");
+    node.addEventListener(
+      "animationend",
+      () => {
+        resetPoemWordNode(node);
+      },
+      { once: true }
+    );
+  });
+
+  updatePoemRevealButton(false);
+};
+
+const getDeterministicPoemRevealNodes = () => {
+  const wordNodes = getPoemWordNodes();
+
+  if (!wordNodes.length) {
+    return [];
+  }
+
+  const revealCount = Math.max(
+    1,
+    Math.round(wordNodes.length * glyphPoemRandomRevealRatio)
+  );
+
+  return [...wordNodes]
+    .map((node, index) => ({
+      node,
+      score:
+        ((((index + 1) * 1103515245) >>> 0) +
+          (((node.dataset.wordTarget || node.textContent || "").codePointAt(0) || 0) * 12345)) >>>
+        0
+    }))
+    .sort((left, right) => left.score - right.score)
+    .slice(0, revealCount)
+    .map(({ node }) => node);
+};
+
+const startPoemWordRevealAnimation = (node, delay = 0) => {
+  if (!(node instanceof HTMLElement)) {
+    return;
+  }
+
+  const targetWord = node.dataset.wordTarget || node.textContent || "";
+  const characters = Array.from(targetWord).map((character) => {
+    const alphabet = getPoemAlphabetForCharacter(character);
+
+    return {
+      target: character,
+      alphabet,
+      targetIndex: alphabet ? alphabet.indexOf(character) : -1
+    };
+  });
+  const characterStaggerMs = 18;
+  const baseDurationMs = 260;
+  const stepDurationMs = 26;
+  const totalDurationMs = characters.reduce((maxDuration, character, index) => {
+    if (!character.alphabet || character.targetIndex <= 0) {
+      return Math.max(maxDuration, index * characterStaggerMs);
+    }
+
+    const characterDuration = baseDurationMs + character.targetIndex * stepDurationMs;
+    return Math.max(maxDuration, index * characterStaggerMs + characterDuration);
+  }, baseDurationMs);
+
+  const renderStep = (elapsed) => {
+    node.textContent = characters
+      .map((character, index) => {
+        if (!character.alphabet || character.targetIndex <= 0) {
+          return character.target;
+        }
+
+        const localElapsed = Math.max(0, elapsed - index * characterStaggerMs);
+        const characterDuration = baseDurationMs + character.targetIndex * stepDurationMs;
+        const progress = Math.min(localElapsed / characterDuration, 1);
+        const revealedIndex = Math.min(
+          character.targetIndex,
+          Math.floor(progress * (character.targetIndex + 1))
+        );
+
+        return character.alphabet[revealedIndex];
+      })
+      .join("");
+  };
+
+  const finish = () => {
+    stopPoemWordAnimation(node);
+    node.textContent = targetWord;
+    node.classList.remove("is-revealing");
+    node.classList.add("is-revealed");
+  };
+
+  const start = () => {
+    node.classList.remove("is-concealing", "is-revealed");
+    node.classList.add("is-revealing");
+    renderStep(0);
+
+    if (totalDurationMs <= 0) {
+      finish();
+      return;
+    }
+
+    const startTime = performance.now();
+    const animate = (frameTime) => {
+      const elapsed = frameTime - startTime;
+
+      if (elapsed >= totalDurationMs) {
+        finish();
+        return;
+      }
+
+      renderStep(elapsed);
+      node.__poemRevealFrameId = window.requestAnimationFrame(animate);
+    };
+
+    node.__poemRevealFrameId = window.requestAnimationFrame(animate);
+  };
+
+  stopPoemWordAnimation(node);
+
+  if (delay > 0) {
+    node.__poemRevealDelayId = window.setTimeout(start, delay);
+    return;
+  }
+
+  start();
+};
+
+const revealDeterministicPoemWords = () => {
+  const revealNodes = getDeterministicPoemRevealNodes();
+
+  if (!revealNodes.length) {
+    return;
+  }
+
+  hidePartialPoemWords();
+
+  revealNodes.forEach((node, index) => {
+    startPoemWordRevealAnimation(node, index * 45);
+  });
+
+  updatePoemRevealButton(true);
 };
 
 if (poemLineNodes.length) {
   poemLineNodes.forEach((line) => {
     const textNode = line.querySelector("[data-poem-text]");
-    const toggleButton = line.querySelector("[data-poem-toggle]");
 
     if (!(textNode instanceof HTMLElement)) {
       return;
     }
 
+    preparePoemTextWords(textNode);
     setPoemLineState(line, false);
-
-    if (toggleButton instanceof HTMLButtonElement) {
-      toggleButton.addEventListener("click", () => {
-        const isRevealed = line.classList.contains("is-revealed");
-        setPoemLineState(line, !isRevealed);
-      });
-    }
   });
 
-  if (poemRevealAllButton instanceof HTMLButtonElement) {
-    poemRevealAllButton.addEventListener("click", () => {
+  if (poemTryLuckButton instanceof HTMLButtonElement) {
+    updatePoemRevealButton(false);
+
+    poemTryLuckButton.addEventListener("click", () => {
+      if (poemPasswordInput?.dataset.unlocked === "true") {
+        return;
+      }
+
+      if (poemTryLuckButton.getAttribute("aria-pressed") === "true") {
+        hidePartialPoemWords({ animated: true });
+        return;
+      }
+
+      revealDeterministicPoemWords();
+    });
+  }
+
+  if (poemPasswordInput instanceof HTMLInputElement && poemPasswordForm instanceof HTMLFormElement) {
+    const defaultPlaceholder = poemPasswordInput.getAttribute("placeholder") || "";
+
+    const unlockPoem = () => {
+      hidePartialPoemWords();
       poemLineNodes.forEach((line) => setPoemLineState(line, true));
-      poemRevealAllButton.setAttribute("aria-pressed", "true");
+      poemPasswordInput.dataset.unlocked = "true";
+      poemPasswordInput.classList.add("is-unlocked");
+      poemPasswordInput.classList.remove("is-error");
+      poemPasswordInput.type = "text";
+      poemPasswordInput.value = "Odblokowano";
+      poemPasswordInput.placeholder = "";
+      poemPasswordInput.readOnly = true;
+
+      if (poemPasswordSubmit instanceof HTMLButtonElement) {
+        poemPasswordSubmit.disabled = true;
+      }
+
+      if (poemTryLuckButton instanceof HTMLButtonElement) {
+        poemTryLuckButton.disabled = true;
+      }
+
+      if (poemBonusTrigger instanceof HTMLButtonElement) {
+        poemBonusTrigger.hidden = false;
+      }
+    };
+
+    const tryUnlockPoem = () => {
+      if (poemPasswordInput.dataset.unlocked === "true") {
+        return;
+      }
+
+      const attempt = poemPasswordInput.value.trim();
+
+      if (!attempt) {
+        return;
+      }
+
+      if (attempt === glyphPoemPassword) {
+        unlockPoem();
+        return;
+      }
+
+      poemPasswordInput.classList.add("is-error");
+      showToast("Nieprawidłowe hasło.", "error");
+    };
+
+    poemPasswordInput.addEventListener("focus", () => {
+      if (poemPasswordInput.dataset.unlocked !== "true") {
+        poemPasswordInput.placeholder = "";
+      }
+    });
+
+    poemPasswordInput.addEventListener("blur", () => {
+      if (
+        poemPasswordInput.dataset.unlocked !== "true" &&
+        !poemPasswordInput.value.trim().length
+      ) {
+        poemPasswordInput.placeholder = defaultPlaceholder;
+      }
+    });
+
+    poemPasswordInput.addEventListener("input", () => {
+      poemPasswordInput.classList.remove("is-error");
+    });
+
+    poemPasswordForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      tryUnlockPoem();
     });
   }
 }
@@ -1303,6 +1960,8 @@ if (accordionFilterRoots.length) {
     runFilter();
   });
 }
+
+revealPoemSearchTargetFromUrl();
 
 if (scrollTopButtons.length) {
   scrollTopButtons.forEach((button) => {

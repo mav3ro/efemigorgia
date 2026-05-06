@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Placeholder pionowego zdjęcia</title>
+  <desc id="desc">Pionowy placeholder obrazu z ciemnym tłem i jasnym obramowaniem.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#151515"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="1200" fill="url(#bg)"/>
+  <rect x="38" y="38" width="644" height="1124" fill="none" stroke="#f3f3f1" stroke-opacity=".22" stroke-width="4"/>
+  <rect x="84" y="84" width="552" height="1032" fill="#090909" stroke="#f3f3f1" stroke-opacity=".1" stroke-width="2"/>
+  <circle cx="360" cy="370" r="124" fill="#141414" stroke="#f3f3f1" stroke-opacity=".16" stroke-width="3"/>
+  <path d="M224 880c36-146 134-220 292-220s256 74 292 220" fill="none" stroke="#f3f3f1" stroke-opacity=".15" stroke-width="18" stroke-linecap="round"/>
+  <text x="360" y="980" fill="#f3f3f1" fill-opacity=".72" font-family="Georgia, 'Times New Roman', serif" font-size="42" letter-spacing="10" text-anchor="middle">
+    PLACEHOLDER
+  </text>
+</svg>
